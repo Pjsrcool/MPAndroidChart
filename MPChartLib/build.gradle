@@ -13,8 +13,21 @@ plugins {
 }
 
 
+apply plugin: 'edu.ucr.cs.riple.plugin'
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
+
+
+autoFixMode {
+    fixPath = "/tmp/NullAwayFix"
+    maximumRound = 20
+}
+
+annotationEditor {
+    remove = ["org.checkerframework.checker.nullness.qual.Nullable", "org.checkerframework.checker.nullness.qual.NonNull"]
+    subProjects = ["caffeine"]
+}
+
 
 group='com.github.philjay'
 
