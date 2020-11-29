@@ -79,6 +79,7 @@ tasks.withType(JavaCompile) {
                                               "-Xep:NullAway:ERROR",
                                               "-XepOpt:NullAway:AnnotatedPackages=com.github.mikephil.charting",
                                               "-XepOpt:NullAway:AutoFix=true",
+                                              "-XepOpt:NullAway:FixAnnotations=androidx.annotation.NonNull,androidx.annotation.Nullable",
                                               "-XepDisableAllWarnings"]
         options.compilerArgs << "-Xmaxerrs" << "100000"
 
