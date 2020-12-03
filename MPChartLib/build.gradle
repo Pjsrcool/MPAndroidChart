@@ -1,3 +1,8 @@
+plugins {
+    // we assume you are already using the Java plugin
+    id "net.ltgt.errorprone" version "0.6"
+}
+
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
@@ -26,7 +31,29 @@ android {
 dependencies {
     implementation 'androidx.annotation:annotation:1.0.0'
     testImplementation 'junit:junit:4.12'
+
+    annotationProcessor "com.uber.nullaway:nullaway:0.8.0"
+
+
+    compileOnly "com.google.code.findbugs:jsr305:3.0.2"
+
+    errorprone "com.google.errorprone:error_prone_core:2.4.0"
+    errorproneJavac "com.google.errorprone:javac:9+181-r4173-1"
 }
+
+
+import net.ltgt.gradle.errorprone.CheckSeverity
+
+tasks.withType(JavaCompile) {
+    // remove the if condition if you want to run NullAway on test code
+    if (!name.toLowerCase().contains("test")) {
+        options.errorprone {
+            check("NullAway", CheckSeverity.ERROR)
+            option("NullAway:AnnotatedPackages", "com.github.mikephil.charting")
+        }
+    }
+}
+
 
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
