@@ -47,10 +47,13 @@ import net.ltgt.gradle.errorprone.CheckSeverity
 tasks.withType(JavaCompile) {
     // remove the if condition if you want to run NullAway on test code
     if (!name.toLowerCase().contains("test")) {
-        options.errorprone {
-            check("NullAway", CheckSeverity.ERROR)
-            option("NullAway:AnnotatedPackages", "com.github.mikephil.charting")
-        }
+        options.errorprone.errorproneArgs += ["-XepDisableAllChecks",
+                                              "-Xep:NullAway:ERROR",
+                                              "-XepOpt:NullAway:AnnotatedPackages=com.github.mikephil.charting",
+                                              "-XepOpt:NullAway:AutoFix=true",
+                                              "-XepOpt:NullAway:FixAnnotations=androidx.annotation.NonNull,androidx.annotation.Nullable",
+                                              "-XepDisableAllWarnings"]
+        options.compilerArgs << "-Xmaxerrs" << "100000"
     }
 }
 
