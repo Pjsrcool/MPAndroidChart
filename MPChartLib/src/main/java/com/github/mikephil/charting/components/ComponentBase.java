@@ -6,6 +6,9 @@ import android.graphics.Typeface;
 
 import com.github.mikephil.charting.utils.Utils;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 /**
  * This class encapsulates everything both Axis, Legend and LimitLines have in common.
  *
@@ -31,6 +34,7 @@ public abstract class ComponentBase {
     /**
      * the typeface used for the labels
      */
+    @Nullable
     protected Typeface mTypeface = null;
 
     /**

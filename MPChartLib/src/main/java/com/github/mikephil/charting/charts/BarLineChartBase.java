@@ -36,6 +36,8 @@ import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.Utils;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 /**
  * Base-class of LineChart, BarChart, ScatterChart and CandleStickChart.
  *
@@ -1041,6 +1043,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
      * @param e
      * @return
      */
+    @Nullable
     public MPPointF getPosition(Entry e, AxisDependency axis) {
 
         if (e == null)
@@ -1352,6 +1355,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
      * @param y
      * @return
      */
+    @Nullable
     public Entry getEntryByTouchPoint(float x, float y) {
         Highlight h = getHighlightByTouchPoint(x, y);
         if (h != null) {
@@ -1367,6 +1371,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
      * @param y
      * @return
      */
+     @Nullable
     public IBarLineScatterCandleBubbleDataSet getDataSetByTouchPoint(float x, float y) {
         Highlight h = getHighlightByTouchPoint(x, y);
         if (h != null) {
@@ -1632,6 +1637,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
     }
 
     @Override
+    @Nullable
     public Paint getPaint(int which) {
         Paint p = super.getPaint(which);
         if (p != null)

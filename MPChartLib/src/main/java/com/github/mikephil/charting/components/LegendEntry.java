@@ -5,6 +5,9 @@ import android.graphics.DashPathEffect;
 
 import com.github.mikephil.charting.utils.ColorTemplate;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 public class LegendEntry {
     public LegendEntry() {
 
@@ -68,6 +71,7 @@ public class LegendEntry {
      *
      * Set to null to use the legend's default
      */
+    @Nullable
     public DashPathEffect formLineDashEffect = null;
 
     /**

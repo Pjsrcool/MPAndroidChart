@@ -4,6 +4,8 @@ package com.github.mikephil.charting.data;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 /**
  * The DataSet class represents one group or type of entries (Entry) in the
  * Chart that belong together. It is designed to logically separate different
@@ -299,6 +301,7 @@ public abstract class DataSet<T extends Entry> extends BaseDataSet<T> {
     }
 
     @Override
+    @Nullable
     public T getEntryForXValue(float xValue, float closestToY, Rounding rounding) {
 
         int index = getEntryIndex(xValue, closestToY, rounding);

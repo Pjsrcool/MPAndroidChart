@@ -11,6 +11,9 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 /**
  * Class representing the legend of the chart. The legend will contain one entry
  * per color and DataSet. Multiple colors in one DataSet are grouped together.
@@ -113,6 +116,7 @@ public class Legend extends ComponentBase {
     /**
      * Line dash path effect used for shapes that consist of lines.
      */
+    @Nullable
     private DashPathEffect mFormLineDashEffect = null;
 
     /**

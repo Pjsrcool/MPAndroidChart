@@ -12,6 +12,9 @@ import com.github.mikephil.charting.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 /**
  * Base-class of all axes (previously called labels).
  *
@@ -95,11 +98,13 @@ public abstract class AxisBase extends ComponentBase {
     /**
      * the path effect of the axis line that makes dashed lines possible
      */
+     @Nullable
     private DashPathEffect mAxisLineDashPathEffect = null;
 
     /**
      * the path effect of the grid lines that makes dashed lines possible
      */
+     @Nullable
     private DashPathEffect mGridDashPathEffect = null;
 
     /**

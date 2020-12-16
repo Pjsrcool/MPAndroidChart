@@ -16,6 +16,9 @@ import com.github.mikephil.charting.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 /**
  * Created by Philipp Jahoda on 21/10/15.
  * This is the base dataset of all DataSets. It's purpose is to implement critical methods
@@ -26,11 +29,13 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     /**
      * List representing all colors that are used for this DataSet
      */
+     @Nullable
     protected List<Integer> mColors = null;
 
     /**
      * List representing all colors that are used for drawing the actual values for this DataSet
      */
+     @Nullable
     protected List<Integer> mValueColors = null;
 
     /**
@@ -61,6 +66,7 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     private Legend.LegendForm mForm = Legend.LegendForm.DEFAULT;
     private float mFormSize = Float.NaN;
     private float mFormLineWidth = Float.NaN;
+    @Nullable
     private DashPathEffect mFormLineDashEffect = null;
 
     /**

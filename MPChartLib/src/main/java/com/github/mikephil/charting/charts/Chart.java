@@ -56,6 +56,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 /**
  * Baseclass of all Chart-Views.
  *
@@ -76,6 +78,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * object that holds all data that was originally set for the chart, before
      * it was modified or any filtering algorithms had been applied
      */
+    @Nullable
     protected T mData = null;
 
     /**
@@ -467,6 +470,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * array of Highlight objects that reference the highlighted slices in the
      * chart
      */
+    @Nullable
     protected Highlight[] mIndicesToHighlight;
 
     /**
@@ -536,7 +540,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @param highs
      */
-    protected void setLastHighlighted(Highlight[] highs) {
+    protected void setLastHighlighted(@Nullable Highlight[] highs) {
 
         if (highs == null || highs.length <= 0 || highs[0] == null) {
             mChartTouchListener.setLastHighlighted(null);
@@ -644,7 +648,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * @param dataIndex The data index to search in (only used in CombinedChartView currently)
      * @param callListener Should the listener be called for this change
      */
-    public void highlightValue(float x, float y, int dataSetIndex, int dataIndex, boolean callListener) {
+    public void highlightValue(@Nullable float x, @Nullable float y, @Nullable int dataSetIndex, @Nullable int dataIndex, @Nullable boolean callListener) {
 
         if (dataSetIndex < 0 || dataSetIndex >= mData.getDataSetCount()) {
             highlightValue(null, callListener);
