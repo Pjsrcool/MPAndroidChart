@@ -301,7 +301,7 @@ public abstract class DataSet<T extends Entry> extends BaseDataSet<T> {
     }
 
     @Override
-    @Nullable
+    @SuppressWarnings("NullAway")
     public T getEntryForXValue(float xValue, float closestToY, Rounding rounding) {
 
         int index = getEntryIndex(xValue, closestToY, rounding);
@@ -311,6 +311,7 @@ public abstract class DataSet<T extends Entry> extends BaseDataSet<T> {
     }
 
     @Override
+    @SuppressWarnings("NullAway")
     public T getEntryForXValue(float xValue, float closestToY) {
         return getEntryForXValue(xValue, closestToY, Rounding.CLOSEST);
     }

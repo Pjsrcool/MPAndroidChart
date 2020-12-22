@@ -12,6 +12,8 @@ import com.github.mikephil.charting.animation.Easing.EasingFunction;
  * @author Philipp Jahoda
  * @author Mick Ashton
  */
+
+@SuppressWarnings("NullAway.Init")
 public class ChartAnimator {
 
     /** object that is updated upon animation update */

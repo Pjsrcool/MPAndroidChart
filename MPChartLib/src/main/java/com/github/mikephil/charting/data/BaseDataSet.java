@@ -24,6 +24,7 @@ import androidx.annotation.Nullable;
  * This is the base dataset of all DataSets. It's purpose is to implement critical methods
  * provided by the IDataSet interface.
  */
+@SuppressWarnings("NullAway.Init")
 public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
 
     /**
@@ -129,20 +130,24 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
      */
 
     @Override
+    @SuppressWarnings("NullAway")
     public List<Integer> getColors() {
         return mColors;
     }
 
+    @SuppressWarnings("NullAway")
     public List<Integer> getValueColors() {
         return mValueColors;
     }
 
     @Override
+    @SuppressWarnings("NullAway")
     public int getColor() {
         return mColors.get(0);
     }
 
     @Override
+    @SuppressWarnings("NullAway")
     public int getColor(int index) {
         return mColors.get(index % mColors.size());
     }
@@ -205,6 +210,7 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
      *
      * @param color
      */
+    @SuppressWarnings("NullAway")
     public void addColor(int color) {
         if (mColors == null)
             mColors = new ArrayList<Integer>();
@@ -217,6 +223,7 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
      *
      * @param color
      */
+    @SuppressWarnings("NullAway")
     public void setColor(int color) {
         resetColors();
         mColors.add(color);
@@ -248,6 +255,7 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     /**
      * Resets all colors of this DataSet and recreates the colors array.
      */
+    @SuppressWarnings("NullAway")
     public void resetColors() {
         if (mColors == null) {
             mColors = new ArrayList<Integer>();
@@ -322,11 +330,13 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     }
 
     @Override
+    @SuppressWarnings("NullAway")
     public int getValueTextColor() {
         return mValueColors.get(0);
     }
 
     @Override
+    @SuppressWarnings("NullAway")
     public int getValueTextColor(int index) {
         return mValueColors.get(index % mValueColors.size());
     }
@@ -373,6 +383,7 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     }
 
     @Override
+    @Nullable
     public DashPathEffect getFormLineDashEffect() {
         return mFormLineDashEffect;
     }

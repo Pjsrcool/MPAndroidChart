@@ -188,6 +188,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
     private long drawCycles = 0;
 
     @Override
+    @SuppressWarnings("NullAway")
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
@@ -361,6 +362,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
     /**
      * Performs auto scaling of the axis by recalculating the minimum and maximum y-values based on the entries currently in view.
      */
+    @SuppressWarnings("NullAway")
     protected void autoScale() {
 
         final float fromX = getLowestVisibleX();

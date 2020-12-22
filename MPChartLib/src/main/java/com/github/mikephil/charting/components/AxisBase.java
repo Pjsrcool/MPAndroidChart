@@ -606,6 +606,7 @@ public abstract class AxisBase extends ComponentBase {
      *
      * @return
      */
+    @SuppressWarnings("NullAway")
     public DashPathEffect getGridDashPathEffect() {
         return mGridDashPathEffect;
     }
@@ -658,6 +659,7 @@ public abstract class AxisBase extends ComponentBase {
      *
      * @return
      */
+    @SuppressWarnings("NullAway")
     public DashPathEffect getAxisLineDashPathEffect() {
         return mAxisLineDashPathEffect;
     }

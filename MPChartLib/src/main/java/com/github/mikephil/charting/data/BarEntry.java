@@ -11,6 +11,7 @@ import com.github.mikephil.charting.highlight.Range;
  * @author Philipp Jahoda
  */
 @SuppressLint("ParcelCreator")
+@SuppressWarnings("NullAway.Init")
 public class BarEntry extends Entry {
 
     /**

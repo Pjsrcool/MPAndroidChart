@@ -13,10 +13,12 @@ public abstract class BaseEntry {
     private float y = 0f;
 
     /** optional spot for additional data this Entry represents */
-    @Nullable private Object mData = null;
+    @Nullable 
+    private Object mData = null;
 
     /** optional icon image */
-    @Nullable private Drawable mIcon = null;
+    @Nullable 
+    private Drawable mIcon = null;
 
     public BaseEntry() {
 
@@ -65,6 +67,7 @@ public abstract class BaseEntry {
      *
      * @return
      */
+    @Nullable
     public Drawable getIcon() {
         return mIcon;
     }
@@ -84,6 +87,7 @@ public abstract class BaseEntry {
      *
      * @return
      */
+    @Nullable
     public Object getData() {
         return mData;
     }
