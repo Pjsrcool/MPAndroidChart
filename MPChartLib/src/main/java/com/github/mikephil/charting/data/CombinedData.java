@@ -10,6 +10,9 @@ import com.github.mikephil.charting.interfaces.datasets.IBarLineScatterCandleBub
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 /**
  * Data object that allows the combination of Line-, Bar-, Scatter-, Bubble- and
  * CandleData. Used in the CombinedChart class.
@@ -24,6 +27,7 @@ public class CombinedData extends BarLineScatterCandleBubbleData<IBarLineScatter
     private CandleData mCandleData;
     private BubbleData mBubbleData;
 
+    @SuppressWarnings("NullAway.Init")
     public CombinedData() {
         super();
     }

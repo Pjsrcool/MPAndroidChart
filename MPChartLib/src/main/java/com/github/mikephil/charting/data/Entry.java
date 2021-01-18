@@ -94,6 +94,7 @@ public class Entry extends BaseEntry implements Parcelable {
      * 
      * @return
      */
+    @SuppressWarnings("NullAway")
     public Entry copy() {
         Entry e = new Entry(x, getY(), getData());
         return e;
@@ -138,6 +139,7 @@ public class Entry extends BaseEntry implements Parcelable {
     }
 
     @Override
+    @SuppressWarnings("NullAway")
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeFloat(this.x);
         dest.writeFloat(this.getY());

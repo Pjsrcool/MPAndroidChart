@@ -131,6 +131,7 @@ public class CandleEntry extends Entry {
         return super.getY();
     }
 
+    @SuppressWarnings("NullAway")
     public CandleEntry copy() {
 
         CandleEntry c = new CandleEntry(getX(), mShadowHigh, mShadowLow, mOpen,

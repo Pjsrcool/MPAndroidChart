@@ -20,6 +20,7 @@ import androidx.annotation.Nullable;
  *
  * @author Philipp Jahoda
  */
+@SuppressWarnings("NullAway.Init")
 public abstract class AxisBase extends ComponentBase {
 
     /**
