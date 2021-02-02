@@ -28,6 +28,9 @@ annotationEditor {
     subProjects = ["caffeine"]
 }
 
+diagnoseMode {
+    fixPath = "/tmp/NullAwayFix/diagnose.json"
+}
 
 group='com.github.philjay'
 
