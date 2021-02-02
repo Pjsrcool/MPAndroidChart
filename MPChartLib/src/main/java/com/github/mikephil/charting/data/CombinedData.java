@@ -201,6 +201,7 @@ public class CombinedData extends BarLineScatterCandleBubbleData<IBarLineScatter
         // The value of the highlighted entry could be NaN -
         //   if we are not interested in highlighting a specific value.
 
+        
         List<Entry> entries = data.getDataSetByIndex(highlight.getDataSetIndex())
                 .getEntriesForXValue(highlight.getX());
         for (Entry entry : entries)
@@ -217,6 +218,7 @@ public class CombinedData extends BarLineScatterCandleBubbleData<IBarLineScatter
      * @param highlight current highlight
      * @return dataset related to highlight
      */
+    @Nullable
     public IBarLineScatterCandleBubbleDataSet<? extends Entry> getDataSetByHighlight(Highlight highlight) {
         if (highlight.getDataIndex() >= getAllData().size())
             return null;

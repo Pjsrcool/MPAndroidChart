@@ -337,7 +337,6 @@ public abstract class ChartData<T extends IDataSet<? extends Entry>> {
      * @param highlight
      * @return the entry that is highlighted
      */
-    @Nullable
     public Entry getEntryForHighlight(Highlight highlight) {
         if (highlight.getDataSetIndex() >= mDataSets.size())
             return null;
@@ -355,7 +354,6 @@ public abstract class ChartData<T extends IDataSet<? extends Entry>> {
      * @param ignorecase
      * @return
      */
-    @Nullable
     public T getDataSetByLabel(String label, boolean ignorecase) {
 
         int index = getDataSetIndexByLabel(mDataSets, label, ignorecase);
@@ -366,7 +364,6 @@ public abstract class ChartData<T extends IDataSet<? extends Entry>> {
             return mDataSets.get(index);
     }
 
-    @Nullable
     public T getDataSetByIndex(int index) {
 
         if (mDataSets == null || index < 0 || index >= mDataSets.size())

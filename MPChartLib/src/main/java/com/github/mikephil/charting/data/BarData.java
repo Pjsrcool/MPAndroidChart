@@ -5,6 +5,9 @@ import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 /**
  * Data object that represents all data for the BarChart.
  *
@@ -61,7 +64,9 @@ public class BarData extends BarLineScatterCandleBubbleData<IBarDataSet> {
         }
 
         IBarDataSet max = getMaxEntryCountSet();
-        int maxEntryCount = max.getEntryCount();
+        
+        @Nullable
+        int maxEntryCount = max != null ? max.getEntryCount() : null;
 
         float groupSpaceWidthHalf = groupSpace / 2f;
         float barSpaceHalf = barSpace / 2f;
