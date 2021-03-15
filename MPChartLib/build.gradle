@@ -30,6 +30,7 @@ annotationEditor {
 
 diagnoseMode {
     fixPath = "/tmp/NullAwayFix/diagnose.json"
+    deep = true
 }
 
 group='com.github.philjay'
