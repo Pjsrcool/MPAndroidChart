@@ -29,6 +29,7 @@ annotationEditor {
 }
 
 diagnoseMode {
+    fixPath = "/tmp/NullAwayFix/diagnose.json"
     deep = true
 }
 
