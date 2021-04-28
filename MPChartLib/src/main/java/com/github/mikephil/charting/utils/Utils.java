@@ -1,4 +1,3 @@
-
 package com.github.mikephil.charting.utils;
 
 import android.annotation.SuppressLint;
@@ -20,11 +19,10 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
-
 import com.github.mikephil.charting.formatter.DefaultValueFormatter;
 import com.github.mikephil.charting.formatter.IValueFormatter;
-
 import java.util.List;
+import androidx.annotation.Nullable;
 
 /**
  * Utilities class that has some helper methods. Needs to be initialized by
@@ -36,10 +34,15 @@ import java.util.List;
  */
 public abstract class Utils {
 
+    @Nullable()
     private static DisplayMetrics mMetrics;
+
     private static int mMinimumFlingVelocity = 50;
+
     private static int mMaximumFlingVelocity = 8000;
+
     public final static double DEG2RAD = (Math.PI / 180.0);
+
     public final static float FDEG2RAD = ((float) Math.PI / 180.f);
 
     @SuppressWarnings("unused")
@@ -55,21 +58,16 @@ public abstract class Utils {
      */
     @SuppressWarnings("deprecation")
     public static void init(Context context) {
-
         if (context == null) {
             // noinspection deprecation
             mMinimumFlingVelocity = ViewConfiguration.getMinimumFlingVelocity();
             // noinspection deprecation
             mMaximumFlingVelocity = ViewConfiguration.getMaximumFlingVelocity();
-
-            Log.e("MPChartLib-Utils"
-                    , "Utils.init(...) PROVIDED CONTEXT OBJECT IS NULL");
-
+            Log.e("MPChartLib-Utils", "Utils.init(...) PROVIDED CONTEXT OBJECT IS NULL");
         } else {
             ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
             mMinimumFlingVelocity = viewConfiguration.getScaledMinimumFlingVelocity();
             mMaximumFlingVelocity = viewConfiguration.getScaledMaximumFlingVelocity();
-
             Resources res = context.getResources();
             mMetrics = res.getDisplayMetrics();
         }
@@ -83,9 +81,7 @@ public abstract class Utils {
      */
     @Deprecated
     public static void init(Resources res) {
-
         mMetrics = res.getDisplayMetrics();
-
         // noinspection deprecation
         mMinimumFlingVelocity = ViewConfiguration.getMinimumFlingVelocity();
         // noinspection deprecation
@@ -102,16 +98,10 @@ public abstract class Utils {
      * device density
      */
     public static float convertDpToPixel(float dp) {
-
         if (mMetrics == null) {
-
-            Log.e("MPChartLib-Utils",
-                    "Utils NOT INITIALIZED. You need to call Utils.init(...) at least once before" +
-                            " calling Utils.convertDpToPixel(...). Otherwise conversion does not " +
-                            "take place.");
+            Log.e("MPChartLib-Utils", "Utils NOT INITIALIZED. You need to call Utils.init(...) at least once before" + " calling Utils.convertDpToPixel(...). Otherwise conversion does not " + "take place.");
             return dp;
         }
-
         return dp * mMetrics.density;
     }
 
@@ -123,16 +113,10 @@ public abstract class Utils {
      * @return A float value to represent dp equivalent to px value
      */
     public static float convertPixelsToDp(float px) {
-
         if (mMetrics == null) {
-
-            Log.e("MPChartLib-Utils",
-                    "Utils NOT INITIALIZED. You need to call Utils.init(...) at least once before" +
-                            " calling Utils.convertPixelsToDp(...). Otherwise conversion does not" +
-                            " take place.");
+            Log.e("MPChartLib-Utils", "Utils NOT INITIALIZED. You need to call Utils.init(...) at least once before" + " calling Utils.convertPixelsToDp(...). Otherwise conversion does not" + " take place.");
             return px;
         }
-
         return px / mMetrics.density;
     }
 
@@ -149,6 +133,7 @@ public abstract class Utils {
     }
 
     private static Rect mCalcTextHeightRect = new Rect();
+
     /**
      * calculates the approximate height of a text, depending on a demo text
      * avoid repeated calls (e.g. inside drawing methods)
@@ -158,9 +143,8 @@ public abstract class Utils {
      * @return
      */
     public static int calcTextHeight(Paint paint, String demoText) {
-
         Rect r = mCalcTextHeightRect;
-        r.set(0,0,0,0);
+        r.set(0, 0, 0, 0);
         paint.getTextBounds(demoText, 0, demoText.length(), r);
         return r.height();
     }
@@ -171,7 +155,7 @@ public abstract class Utils {
         return getLineHeight(paint, mFontMetrics);
     }
 
-    public static float getLineHeight(Paint paint, Paint.FontMetrics fontMetrics){
+    public static float getLineHeight(Paint paint, Paint.FontMetrics fontMetrics) {
         paint.getFontMetrics(fontMetrics);
         return fontMetrics.descent - fontMetrics.ascent;
     }
@@ -180,7 +164,7 @@ public abstract class Utils {
         return getLineSpacing(paint, mFontMetrics);
     }
 
-    public static float getLineSpacing(Paint paint, Paint.FontMetrics fontMetrics){
+    public static float getLineSpacing(Paint paint, Paint.FontMetrics fontMetrics) {
         paint.getFontMetrics(fontMetrics);
         return fontMetrics.ascent - fontMetrics.top + fontMetrics.bottom;
     }
@@ -195,13 +179,13 @@ public abstract class Utils {
      * @return A Recyclable FSize instance
      */
     public static FSize calcTextSize(Paint paint, String demoText) {
-
-        FSize result = FSize.getInstance(0,0);
+        FSize result = FSize.getInstance(0, 0);
         calcTextSize(paint, demoText, result);
         return result;
     }
 
     private static Rect mCalcTextSizeRect = new Rect();
+
     /**
      * calculates the approximate size of a text, depending on a demo text
      * avoid repeated calls (e.g. inside drawing methods)
@@ -211,23 +195,18 @@ public abstract class Utils {
      * @param outputFSize An output variable, modified by the function.
      */
     public static void calcTextSize(Paint paint, String demoText, FSize outputFSize) {
-
         Rect r = mCalcTextSizeRect;
-        r.set(0,0,0,0);
+        r.set(0, 0, 0, 0);
         paint.getTextBounds(demoText, 0, demoText.length(), r);
         outputFSize.width = r.width();
         outputFSize.height = r.height();
-
     }
-
 
     /**
      * Math.pow(...) is very expensive, so avoid calling it and create it
      * yourself.
      */
-    private static final int POW_10[] = {
-            1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000
-    };
+    private static final int[] POW_10 = { 1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000 };
 
     private static IValueFormatter mDefaultValueFormatter = generateDefaultValueFormatter();
 
@@ -236,9 +215,8 @@ public abstract class Utils {
         return formatter;
     }
 
-    /// - returns: The default value formatter used for all chart components that needs a default
-    public static IValueFormatter getDefaultValueFormatter()
-    {
+    // / - returns: The default value formatter used for all chart components that needs a default
+    public static IValueFormatter getDefaultValueFormatter() {
         return mDefaultValueFormatter;
     }
 
@@ -266,60 +244,46 @@ public abstract class Utils {
      * @param separateChar      a caracter to be paced between the "thousands"
      * @return
      */
-    public static String formatNumber(float number, int digitCount, boolean separateThousands,
-                                      char separateChar) {
-
+    public static String formatNumber(float number, int digitCount, boolean separateThousands, char separateChar) {
         char[] out = new char[35];
-
         boolean neg = false;
         if (number == 0) {
             return "0";
         }
-
         boolean zero = false;
         if (number < 1 && number > -1) {
             zero = true;
         }
-
         if (number < 0) {
             neg = true;
             number = -number;
         }
-
         if (digitCount > POW_10.length) {
             digitCount = POW_10.length - 1;
         }
-
         number *= POW_10[digitCount];
         long lval = Math.round(number);
         int ind = out.length - 1;
         int charCount = 0;
         boolean decimalPointAdded = false;
-
         while (lval != 0 || charCount < (digitCount + 1)) {
             int digit = (int) (lval % 10);
             lval = lval / 10;
             out[ind--] = (char) (digit + '0');
             charCount++;
-
             // add decimal point
             if (charCount == digitCount) {
                 out[ind--] = ',';
                 charCount++;
                 decimalPointAdded = true;
-
                 // add thousand separators
             } else if (separateThousands && lval != 0 && charCount > digitCount) {
-
                 if (decimalPointAdded) {
-
                     if ((charCount - digitCount) % 4 == 0) {
                         out[ind--] = separateChar;
                         charCount++;
                     }
-
                 } else {
-
                     if ((charCount - digitCount) % 4 == 3) {
                         out[ind--] = separateChar;
                         charCount++;
@@ -327,21 +291,17 @@ public abstract class Utils {
                 }
             }
         }
-
         // if number around zero (between 1 and -1)
         if (zero) {
             out[ind--] = '0';
             charCount += 1;
         }
-
         // if the number is negative
         if (neg) {
             out[ind--] = '-';
             charCount += 1;
         }
-
         int start = out.length - charCount;
-
         // use this instead of "new String(...)" because of issue < Android 4.0
         return String.valueOf(out, start, out.length - start);
     }
@@ -353,11 +313,8 @@ public abstract class Utils {
      * @return
      */
     public static float roundToNextSignificant(double number) {
-        if (Double.isInfinite(number) || 
-            Double.isNaN(number) || 
-            number == 0.0)
+        if (Double.isInfinite(number) || Double.isNaN(number) || number == 0.0)
             return 0;
-        
         final float d = (float) Math.ceil((float) Math.log10(number < 0 ? -number : number));
         final int pw = 1 - (int) d;
         final float magnitude = (float) Math.pow(10, pw);
@@ -373,12 +330,9 @@ public abstract class Utils {
      * @return
      */
     public static int getDecimals(float number) {
-
         float i = roundToNextSignificant(number);
-        
         if (Float.isInfinite(i))
             return 0;
-        
         return (int) Math.ceil(-Math.log10(i)) + 2;
     }
 
@@ -389,17 +343,14 @@ public abstract class Utils {
      * @return
      */
     public static int[] convertIntegers(List<Integer> integers) {
-
         int[] ret = new int[integers.size()];
-
         copyIntegers(integers, ret);
-
         return ret;
     }
 
-    public static void copyIntegers(List<Integer> from, int[] to){
+    public static void copyIntegers(List<Integer> from, int[] to) {
         int count = to.length < from.size() ? to.length : from.size();
-        for(int i = 0 ; i < count ; i++){
+        for (int i = 0; i < count; i++) {
             to[i] = from.get(i);
         }
     }
@@ -411,19 +362,16 @@ public abstract class Utils {
      * @return
      */
     public static String[] convertStrings(List<String> strings) {
-
         String[] ret = new String[strings.size()];
-
         for (int i = 0; i < ret.length; i++) {
             ret[i] = strings.get(i);
         }
-
         return ret;
     }
 
-    public static void copyStrings(List<String> from, String[] to){
+    public static void copyStrings(List<String> from, String[] to) {
         int count = to.length < from.size() ? to.length : from.size();
-        for(int i = 0 ; i < count ; i++){
+        for (int i = 0; i < count; i++) {
             to[i] = from.get(i);
         }
     }
@@ -440,8 +388,7 @@ public abstract class Utils {
             return d;
         else {
             d += 0.0d;
-            return Double.longBitsToDouble(Double.doubleToRawLongBits(d) +
-                    ((d >= 0.0d) ? +1L : -1L));
+            return Double.longBitsToDouble(Double.doubleToRawLongBits(d) + ((d >= 0.0d) ? +1L : -1L));
         }
     }
 
@@ -456,20 +403,17 @@ public abstract class Utils {
      * @return
      */
     public static MPPointF getPosition(MPPointF center, float dist, float angle) {
-
-        MPPointF p = MPPointF.getInstance(0,0);
+        MPPointF p = MPPointF.getInstance(0, 0);
         getPosition(center, dist, angle, p);
         return p;
     }
 
-    public static void getPosition(MPPointF center, float dist, float angle, MPPointF outputPoint){
+    public static void getPosition(MPPointF center, float dist, float angle, MPPointF outputPoint) {
         outputPoint.x = (float) (center.x + dist * Math.cos(Math.toRadians(angle)));
         outputPoint.y = (float) (center.y + dist * Math.sin(Math.toRadians(angle)));
     }
 
-    public static void velocityTrackerPointerUpCleanUpIfNecessary(MotionEvent ev,
-                                                                  VelocityTracker tracker) {
-
+    public static void velocityTrackerPointerUpCleanUpIfNecessary(MotionEvent ev, @Nullable() VelocityTracker tracker) {
         // Check the dot product of current velocities.
         // If the pointer that left was opposing another velocity vector, clear.
         tracker.computeCurrentVelocity(1000, mMaximumFlingVelocity);
@@ -480,11 +424,9 @@ public abstract class Utils {
         for (int i = 0, count = ev.getPointerCount(); i < count; i++) {
             if (i == upIndex)
                 continue;
-
             final int id2 = ev.getPointerId(i);
             final float x = x1 * tracker.getXVelocity(id2);
             final float y = y1 * tracker.getYVelocity(id2);
-
             final float dot = x + y;
             if (dot < 0) {
                 tracker.clear();
@@ -519,30 +461,18 @@ public abstract class Utils {
      * returns an angle between 0.f < 360.f (not less than zero, less than 360)
      */
     public static float getNormalizedAngle(float angle) {
-        while (angle < 0.f)
-            angle += 360.f;
-
+        while (angle < 0.f) angle += 360.f;
         return angle % 360.f;
     }
 
     private static Rect mDrawableBoundsCache = new Rect();
 
-    public static void drawImage(Canvas canvas,
-                                 Drawable drawable,
-                                 int x, int y,
-                                 int width, int height) {
-
+    public static void drawImage(Canvas canvas, Drawable drawable, int x, int y, int width, int height) {
         MPPointF drawOffset = MPPointF.getInstance();
         drawOffset.x = x - (width / 2);
         drawOffset.y = y - (height / 2);
-
         drawable.copyBounds(mDrawableBoundsCache);
-        drawable.setBounds(
-                mDrawableBoundsCache.left,
-                mDrawableBoundsCache.top,
-                mDrawableBoundsCache.left + width,
-                mDrawableBoundsCache.top + width);
-
+        drawable.setBounds(mDrawableBoundsCache.left, mDrawableBoundsCache.top, mDrawableBoundsCache.left + width, mDrawableBoundsCache.top + width);
         int saveId = canvas.save();
         // translate to the correct position and draw
         canvas.translate(drawOffset.x, drawOffset.y);
@@ -551,164 +481,106 @@ public abstract class Utils {
     }
 
     private static Rect mDrawTextRectBuffer = new Rect();
+
     private static Paint.FontMetrics mFontMetricsBuffer = new Paint.FontMetrics();
 
-    public static void drawXAxisValue(Canvas c, String text, float x, float y,
-                                      Paint paint,
-                                      MPPointF anchor, float angleDegrees) {
-
+    public static void drawXAxisValue(Canvas c, String text, float x, float y, Paint paint, MPPointF anchor, float angleDegrees) {
         float drawOffsetX = 0.f;
         float drawOffsetY = 0.f;
-
         final float lineHeight = paint.getFontMetrics(mFontMetricsBuffer);
         paint.getTextBounds(text, 0, text.length(), mDrawTextRectBuffer);
-
         // Android sometimes has pre-padding
         drawOffsetX -= mDrawTextRectBuffer.left;
-
         // Android does not snap the bounds to line boundaries,
-        //  and draws from bottom to top.
+        // and draws from bottom to top.
         // And we want to normalize it.
         drawOffsetY += -mFontMetricsBuffer.ascent;
-
         // To have a consistent point of reference, we always draw left-aligned
         Paint.Align originalTextAlign = paint.getTextAlign();
         paint.setTextAlign(Paint.Align.LEFT);
-
         if (angleDegrees != 0.f) {
-
             // Move the text drawing rect in a way that it always rotates around its center
             drawOffsetX -= mDrawTextRectBuffer.width() * 0.5f;
             drawOffsetY -= lineHeight * 0.5f;
-
             float translateX = x;
             float translateY = y;
-
             // Move the "outer" rect relative to the anchor, assuming its centered
             if (anchor.x != 0.5f || anchor.y != 0.5f) {
-                final FSize rotatedSize = getSizeOfRotatedRectangleByDegrees(
-                        mDrawTextRectBuffer.width(),
-                        lineHeight,
-                        angleDegrees);
-
+                final FSize rotatedSize = getSizeOfRotatedRectangleByDegrees(mDrawTextRectBuffer.width(), lineHeight, angleDegrees);
                 translateX -= rotatedSize.width * (anchor.x - 0.5f);
                 translateY -= rotatedSize.height * (anchor.y - 0.5f);
                 FSize.recycleInstance(rotatedSize);
             }
-
             c.save();
             c.translate(translateX, translateY);
             c.rotate(angleDegrees);
-
             c.drawText(text, drawOffsetX, drawOffsetY, paint);
-
             c.restore();
         } else {
             if (anchor.x != 0.f || anchor.y != 0.f) {
-
                 drawOffsetX -= mDrawTextRectBuffer.width() * anchor.x;
                 drawOffsetY -= lineHeight * anchor.y;
             }
-
             drawOffsetX += x;
             drawOffsetY += y;
-
             c.drawText(text, drawOffsetX, drawOffsetY, paint);
         }
-
         paint.setTextAlign(originalTextAlign);
     }
 
-    public static void drawMultilineText(Canvas c, StaticLayout textLayout,
-                                         float x, float y,
-                                         TextPaint paint,
-                                         MPPointF anchor, float angleDegrees) {
-
+    public static void drawMultilineText(Canvas c, StaticLayout textLayout, float x, float y, TextPaint paint, MPPointF anchor, float angleDegrees) {
         float drawOffsetX = 0.f;
         float drawOffsetY = 0.f;
         float drawWidth;
         float drawHeight;
-
         final float lineHeight = paint.getFontMetrics(mFontMetricsBuffer);
-
         drawWidth = textLayout.getWidth();
         drawHeight = textLayout.getLineCount() * lineHeight;
-
         // Android sometimes has pre-padding
         drawOffsetX -= mDrawTextRectBuffer.left;
-
         // Android does not snap the bounds to line boundaries,
-        //  and draws from bottom to top.
+        // and draws from bottom to top.
         // And we want to normalize it.
         drawOffsetY += drawHeight;
-
         // To have a consistent point of reference, we always draw left-aligned
         Paint.Align originalTextAlign = paint.getTextAlign();
         paint.setTextAlign(Paint.Align.LEFT);
-
         if (angleDegrees != 0.f) {
-
             // Move the text drawing rect in a way that it always rotates around its center
             drawOffsetX -= drawWidth * 0.5f;
             drawOffsetY -= drawHeight * 0.5f;
-
             float translateX = x;
             float translateY = y;
-
             // Move the "outer" rect relative to the anchor, assuming its centered
             if (anchor.x != 0.5f || anchor.y != 0.5f) {
-                final FSize rotatedSize = getSizeOfRotatedRectangleByDegrees(
-                        drawWidth,
-                        drawHeight,
-                        angleDegrees);
-
+                final FSize rotatedSize = getSizeOfRotatedRectangleByDegrees(drawWidth, drawHeight, angleDegrees);
                 translateX -= rotatedSize.width * (anchor.x - 0.5f);
                 translateY -= rotatedSize.height * (anchor.y - 0.5f);
                 FSize.recycleInstance(rotatedSize);
             }
-
             c.save();
             c.translate(translateX, translateY);
             c.rotate(angleDegrees);
-
             c.translate(drawOffsetX, drawOffsetY);
             textLayout.draw(c);
-
             c.restore();
         } else {
             if (anchor.x != 0.f || anchor.y != 0.f) {
-
                 drawOffsetX -= drawWidth * anchor.x;
                 drawOffsetY -= drawHeight * anchor.y;
             }
-
             drawOffsetX += x;
             drawOffsetY += y;
-
             c.save();
-
             c.translate(drawOffsetX, drawOffsetY);
             textLayout.draw(c);
-
             c.restore();
         }
-
         paint.setTextAlign(originalTextAlign);
     }
 
-    public static void drawMultilineText(Canvas c, String text,
-                                         float x, float y,
-                                         TextPaint paint,
-                                         FSize constrainedToSize,
-                                         MPPointF anchor, float angleDegrees) {
-
-        StaticLayout textLayout = new StaticLayout(
-                text, 0, text.length(),
-                paint,
-                (int) Math.max(Math.ceil(constrainedToSize.width), 1.f),
-                Layout.Alignment.ALIGN_NORMAL, 1.f, 0.f, false);
-
-
+    public static void drawMultilineText(Canvas c, String text, float x, float y, TextPaint paint, FSize constrainedToSize, MPPointF anchor, float angleDegrees) {
+        StaticLayout textLayout = new StaticLayout(text, 0, text.length(), paint, (int) Math.max(Math.ceil(constrainedToSize.width), 1.f), Layout.Alignment.ALIGN_NORMAL, 1.f, 0.f, false);
         drawMultilineText(c, textLayout, x, y, paint, anchor, angleDegrees);
     }
 
@@ -722,8 +594,7 @@ public abstract class Utils {
      */
     public static FSize getSizeOfRotatedRectangleByDegrees(FSize rectangleSize, float degrees) {
         final float radians = degrees * FDEG2RAD;
-        return getSizeOfRotatedRectangleByRadians(rectangleSize.width, rectangleSize.height,
-                radians);
+        return getSizeOfRotatedRectangleByRadians(rectangleSize.width, rectangleSize.height, radians);
     }
 
     /**
@@ -735,8 +606,7 @@ public abstract class Utils {
      * @return A Recyclable FSize instance
      */
     public static FSize getSizeOfRotatedRectangleByRadians(FSize rectangleSize, float radians) {
-        return getSizeOfRotatedRectangleByRadians(rectangleSize.width, rectangleSize.height,
-                radians);
+        return getSizeOfRotatedRectangleByRadians(rectangleSize.width, rectangleSize.height, radians);
     }
 
     /**
@@ -748,8 +618,7 @@ public abstract class Utils {
      * @param degrees
      * @return A Recyclable FSize instance
      */
-    public static FSize getSizeOfRotatedRectangleByDegrees(float rectangleWidth, float
-            rectangleHeight, float degrees) {
+    public static FSize getSizeOfRotatedRectangleByDegrees(float rectangleWidth, float rectangleHeight, float degrees) {
         final float radians = degrees * FDEG2RAD;
         return getSizeOfRotatedRectangleByRadians(rectangleWidth, rectangleHeight, radians);
     }
@@ -763,14 +632,8 @@ public abstract class Utils {
      * @param radians
      * @return A Recyclable FSize instance
      */
-    public static FSize getSizeOfRotatedRectangleByRadians(float rectangleWidth, float
-            rectangleHeight, float radians) {
-        return FSize.getInstance(
-                Math.abs(rectangleWidth * (float) Math.cos(radians)) + Math.abs(rectangleHeight *
-                        (float) Math.sin(radians)),
-                Math.abs(rectangleWidth * (float) Math.sin(radians)) + Math.abs(rectangleHeight *
-                        (float) Math.cos(radians))
-        );
+    public static FSize getSizeOfRotatedRectangleByRadians(float rectangleWidth, float rectangleHeight, float radians) {
+        return FSize.getInstance(Math.abs(rectangleWidth * (float) Math.cos(radians)) + Math.abs(rectangleHeight * (float) Math.sin(radians)), Math.abs(rectangleWidth * (float) Math.sin(radians)) + Math.abs(rectangleHeight * (float) Math.cos(radians)));
     }
 
     public static int getSDKInt() {

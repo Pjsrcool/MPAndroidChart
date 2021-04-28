@@ -1,10 +1,8 @@
-
 package com.github.mikephil.charting.data;
 
 import com.github.mikephil.charting.interfaces.datasets.IPieDataSet;
 import com.github.mikephil.charting.utils.Utils;
 import androidx.annotation.Nullable;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +12,7 @@ public class PieDataSet extends DataSet<PieEntry> implements IPieDataSet {
      * the space in pixels between the chart-slices, default 0f
      */
     private float mSliceSpace = 0f;
+
     private boolean mAutomaticallyDisableSliceSpacing;
 
     /**
@@ -22,19 +21,29 @@ public class PieDataSet extends DataSet<PieEntry> implements IPieDataSet {
     private float mShift = 18f;
 
     private ValuePosition mXValuePosition = ValuePosition.INSIDE_SLICE;
+
     private ValuePosition mYValuePosition = ValuePosition.INSIDE_SLICE;
+
     private int mValueLineColor = 0xff000000;
+
     private boolean mUseValueColorForLine = false;
+
     private float mValueLineWidth = 1.0f;
+
     private float mValueLinePart1OffsetPercentage = 75.f;
+
     private float mValueLinePart1Length = 0.3f;
+
     private float mValueLinePart2Length = 0.4f;
+
     private boolean mValueLineVariableLength = true;
+
+    @Nullable()
     private Integer mHighlightColor = null;
 
     public PieDataSet(List<PieEntry> yVals, String label) {
         super(yVals, label);
-//        mShift = Utils.convertDpToPixel(12f);
+        // mShift = Utils.convertDpToPixel(12f);
     }
 
     @Override
@@ -54,10 +63,8 @@ public class PieDataSet extends DataSet<PieEntry> implements IPieDataSet {
 
     @Override
     protected void calcMinMax(PieEntry e) {
-
         if (e == null)
             return;
-
         calcMinMaxY(e);
     }
 
@@ -68,12 +75,10 @@ public class PieDataSet extends DataSet<PieEntry> implements IPieDataSet {
      * @param spaceDp
      */
     public void setSliceSpace(float spaceDp) {
-
         if (spaceDp > 20)
             spaceDp = 20f;
         if (spaceDp < 0)
             spaceDp = 0f;
-
         mSliceSpace = Utils.convertDpToPixel(spaceDp);
     }
 
@@ -169,13 +174,11 @@ public class PieDataSet extends DataSet<PieEntry> implements IPieDataSet {
     }
 
     @Override
-    public boolean isUseValueColorForLineEnabled()
-    {
+    public boolean isUseValueColorForLineEnabled() {
         return mUseValueColorForLine;
     }
 
-    public void setUseValueColorForLine(boolean enabled)
-    {
+    public void setUseValueColorForLine(boolean enabled) {
         mUseValueColorForLine = enabled;
     }
 
@@ -239,23 +242,24 @@ public class PieDataSet extends DataSet<PieEntry> implements IPieDataSet {
         this.mValueLineVariableLength = valueLineVariableLength;
     }
 
-    /** Gets the color for the highlighted sector */
+    /**
+     * Gets the color for the highlighted sector
+     */
     @Override
     @Nullable
-    public Integer getHighlightColor()
-    {
+    public Integer getHighlightColor() {
         return mHighlightColor;
     }
 
-    /** Sets the color for the highlighted sector (null for using entry color) */
-    public void setHighlightColor(@Nullable Integer color)
-    {
+    /**
+     * Sets the color for the highlighted sector (null for using entry color)
+     */
+    public void setHighlightColor(@Nullable Integer color) {
         this.mHighlightColor = color;
     }
 
-
     public enum ValuePosition {
-        INSIDE_SLICE,
-        OUTSIDE_SLICE
+
+        INSIDE_SLICE, OUTSIDE_SLICE
     }
 }

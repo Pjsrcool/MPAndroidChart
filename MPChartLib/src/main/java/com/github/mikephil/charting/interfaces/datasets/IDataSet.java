@@ -3,23 +3,23 @@ package com.github.mikephil.charting.interfaces.datasets;
 import android.graphics.DashPathEffect;
 import android.graphics.PointF;
 import android.graphics.Typeface;
-
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.DataSet;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.utils.MPPointF;
-
 import java.util.List;
+import androidx.annotation.Nullable;
 
 /**
  * Created by Philipp Jahoda on 21/10/15.
  */
 public interface IDataSet<T extends Entry> {
 
-    /** ###### ###### DATA RELATED METHODS ###### ###### */
-
+    /**
+     * ###### ###### DATA RELATED METHODS ###### ######
+     */
     /**
      * returns the minimum y-value this DataSet holds
      *
@@ -83,8 +83,6 @@ public interface IDataSet<T extends Entry> {
      * @param rounding determine whether to round up/down/closest
      *                 if there is no Entry matching the provided x-value
      * @return
-     *
-     *
      */
     T getEntryForXValue(float xValue, float closestToY, DataSet.Rounding rounding);
 
@@ -95,7 +93,6 @@ public interface IDataSet<T extends Entry> {
      * returns the Entry at the closest x-value.
      * INFORMATION: This method does calculations at runtime. Do
      * not over-use in performance critical situations.
-     *
      *
      * @param xValue the x-value
      * @param closestToY If there are multiple y-values for the specified x-value,
@@ -145,8 +142,7 @@ public interface IDataSet<T extends Entry> {
      * @param e
      * @return
      */
-    int getEntryIndex(T e);
-
+    int getEntryIndex(@Nullable() T e);
 
     /**
      * This method returns the actual
@@ -168,7 +164,6 @@ public interface IDataSet<T extends Entry> {
      * @param e
      */
     boolean addEntry(T e);
-
 
     /**
      * Adds an Entry to the DataSet dynamically.
@@ -238,9 +233,9 @@ public interface IDataSet<T extends Entry> {
      */
     void clear();
 
-
-    /** ###### ###### STYLING RELATED (& OTHER) METHODS ###### ###### */
-
+    /**
+     * ###### ###### STYLING RELATED (& OTHER) METHODS ###### ######
+     */
     /**
      * Returns the label string that describes the DataSet.
      *
@@ -418,6 +413,7 @@ public interface IDataSet<T extends Entry> {
      * <p/>
      * Return `null` to use the default legend form line dash effect.
      */
+    @Nullable()
     DashPathEffect getFormLineDashEffect();
 
     /**

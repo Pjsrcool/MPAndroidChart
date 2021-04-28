@@ -1,25 +1,23 @@
-
 package com.github.mikephil.charting.data;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.util.Log;
-
 import com.github.mikephil.charting.formatter.DefaultFillFormatter;
 import com.github.mikephil.charting.formatter.IFillFormatter;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.Utils;
-
 import java.util.ArrayList;
 import java.util.List;
+import androidx.annotation.Nullable;
 
 public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet {
 
     /**
      * Drawing mode for this line dataset
-     **/
+     */
     private LineDataSet.Mode mMode = Mode.LINEAR;
 
     /**
@@ -50,6 +48,7 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
     /**
      * the path effect of this DataSet that makes dashed lines possible
      */
+    @Nullable()
     private DashPathEffect mDashPathEffect = null;
 
     /**
@@ -64,18 +63,14 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
 
     private boolean mDrawCircleHole = true;
 
-
     public LineDataSet(List<Entry> yVals, String label) {
         super(yVals, label);
-
         // mCircleRadius = Utils.convertDpToPixel(4f);
         // mLineWidth = Utils.convertDpToPixel(1f);
-
         if (mCircleColors == null) {
             mCircleColors = new ArrayList<Integer>();
         }
         mCircleColors.clear();
-
         // default colors
         // mColors.add(Color.rgb(192, 255, 140));
         // mColors.add(Color.rgb(255, 247, 140));
@@ -133,12 +128,10 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
      * @param intensity
      */
     public void setCubicIntensity(float intensity) {
-
         if (intensity > 1f)
             intensity = 1f;
         if (intensity < 0.05f)
             intensity = 0.05f;
-
         mCubicIntensity = intensity;
     }
 
@@ -147,7 +140,6 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
         return mCubicIntensity;
     }
 
-
     /**
      * Sets the radius of the drawn circles.
      * Default radius = 4f, Min = 1f
@@ -155,7 +147,6 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
      * @param radius
      */
     public void setCircleRadius(float radius) {
-
         if (radius >= 1f) {
             mCircleRadius = Utils.convertDpToPixel(radius);
         } else {
@@ -175,7 +166,6 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
      * @param holeRadius
      */
     public void setCircleHoleRadius(float holeRadius) {
-
         if (holeRadius >= 0.5f) {
             mCircleHoleRadius = Utils.convertDpToPixel(holeRadius);
         } else {
@@ -219,9 +209,7 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
      * @param phase       offset, in degrees (normally, use 0)
      */
     public void enableDashedLine(float lineLength, float spaceLength, float phase) {
-        mDashPathEffect = new DashPathEffect(new float[]{
-                lineLength, spaceLength
-        }, phase);
+        mDashPathEffect = new DashPathEffect(new float[] { lineLength, spaceLength }, phase);
     }
 
     /**
@@ -237,6 +225,7 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
     }
 
     @Override
+    @Nullable()
     public DashPathEffect getDashPathEffect() {
         return mDashPathEffect;
     }
@@ -268,8 +257,9 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
         return mMode == Mode.STEPPED;
     }
 
-    /** ALL CODE BELOW RELATED TO CIRCLE-COLORS */
-
+    /**
+     * ALL CODE BELOW RELATED TO CIRCLE-COLORS
+     */
     /**
      * returns all colors specified for the circles
      *
@@ -326,17 +316,14 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
      * @param colors
      */
     public void setCircleColors(int[] colors, Context c) {
-
         List<Integer> clrs = mCircleColors;
         if (clrs == null) {
             clrs = new ArrayList<>();
         }
         clrs.clear();
-
         for (int color : colors) {
             clrs.add(c.getResources().getColor(color));
         }
-
         mCircleColors = clrs;
     }
 
@@ -396,7 +383,6 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
      * @param formatter
      */
     public void setFillFormatter(IFillFormatter formatter) {
-
         if (formatter == null)
             mFillFormatter = new DefaultFillFormatter();
         else
@@ -409,9 +395,7 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
     }
 
     public enum Mode {
-        LINEAR,
-        STEPPED,
-        CUBIC_BEZIER,
-        HORIZONTAL_BEZIER
+
+        LINEAR, STEPPED, CUBIC_BEZIER, HORIZONTAL_BEZIER
     }
 }

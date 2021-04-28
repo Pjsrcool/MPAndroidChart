@@ -1,12 +1,11 @@
-
 package com.github.mikephil.charting.data;
 
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.datasets.IRadarDataSet;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.github.mikephil.charting.Initializer;
 
 /**
  * Data container for the RadarChart.
@@ -34,6 +33,7 @@ public class RadarData extends ChartData<IRadarDataSet> {
      *
      * @param labels
      */
+    @Initializer()
     public void setLabels(List<String> labels) {
         this.mLabels = labels;
     }

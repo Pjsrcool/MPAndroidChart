@@ -1,13 +1,11 @@
-
 package com.github.mikephil.charting.data;
 
 import android.graphics.Color;
-
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.utils.Fill;
-
 import java.util.ArrayList;
 import java.util.List;
+import androidx.annotation.Nullable;
 
 public class BarDataSet extends BarLineScatterCandleBubbleDataSet<BarEntry> implements IBarDataSet {
 
@@ -39,15 +37,13 @@ public class BarDataSet extends BarLineScatterCandleBubbleDataSet<BarEntry> impl
     /**
      * array of labels used to describe the different values of the stacked bars
      */
-    private String[] mStackLabels = new String[]{};
+    private String[] mStackLabels = new String[] {};
 
     protected List<Fill> mFills = null;
 
     public BarDataSet(List<BarEntry> yVals, String label) {
         super(yVals, label);
-
         mHighLightColor = Color.rgb(0, 0, 0);
-
         calcStackSize(yVals);
         calcEntryCountIncludingStacks(yVals);
     }
@@ -138,13 +134,9 @@ public class BarDataSet extends BarLineScatterCandleBubbleDataSet<BarEntry> impl
      * stacks. All values belonging to a stack are calculated separately.
      */
     private void calcEntryCountIncludingStacks(List<BarEntry> yVals) {
-
         mEntryCountStacks = 0;
-
         for (int i = 0; i < yVals.size(); i++) {
-
             float[] vals = yVals.get(i).getYVals();
-
             if (vals == null)
                 mEntryCountStacks++;
             else
@@ -157,11 +149,8 @@ public class BarDataSet extends BarLineScatterCandleBubbleDataSet<BarEntry> impl
      * DataSet
      */
     private void calcStackSize(List<BarEntry> yVals) {
-
         for (int i = 0; i < yVals.size(); i++) {
-
             float[] vals = yVals.get(i).getYVals();
-
             if (vals != null && vals.length > mStackSize)
                 mStackSize = vals.length;
         }
@@ -169,25 +158,18 @@ public class BarDataSet extends BarLineScatterCandleBubbleDataSet<BarEntry> impl
 
     @Override
     protected void calcMinMax(BarEntry e) {
-
         if (e != null && !Float.isNaN(e.getY())) {
-
             if (e.getYVals() == null) {
-
                 if (e.getY() < mYMin)
                     mYMin = e.getY();
-
                 if (e.getY() > mYMax)
                     mYMax = e.getY();
             } else {
-
                 if (-e.getNegativeSum() < mYMin)
                     mYMin = -e.getNegativeSum();
-
                 if (e.getPositiveSum() > mYMax)
                     mYMax = e.getPositiveSum();
             }
-
             calcMinMaxX(e);
         }
     }

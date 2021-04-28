@@ -1,11 +1,10 @@
 package com.github.mikephil.charting.data;
 
 import android.graphics.DashPathEffect;
-
 import com.github.mikephil.charting.interfaces.datasets.ILineScatterCandleRadarDataSet;
 import com.github.mikephil.charting.utils.Utils;
-
 import java.util.List;
+import androidx.annotation.Nullable;
 
 /**
  * Created by Philipp Jahoda on 11/07/15.
@@ -13,14 +12,19 @@ import java.util.List;
 public abstract class LineScatterCandleRadarDataSet<T extends Entry> extends BarLineScatterCandleBubbleDataSet<T> implements ILineScatterCandleRadarDataSet<T> {
 
     protected boolean mDrawVerticalHighlightIndicator = true;
+
     protected boolean mDrawHorizontalHighlightIndicator = true;
 
-    /** the width of the highlight indicator lines */
+    /**
+     * the width of the highlight indicator lines
+     */
     protected float mHighlightLineWidth = 0.5f;
 
-    /** the path effect for dashed highlight-lines */
+    /**
+     * the path effect for dashed highlight-lines
+     */
+    @Nullable()
     protected DashPathEffect mHighlightDashPathEffect = null;
-
 
     public LineScatterCandleRadarDataSet(List<T> yVals, String label) {
         super(yVals, label);
@@ -83,9 +87,7 @@ public abstract class LineScatterCandleRadarDataSet<T extends Entry> extends Bar
      * @param phase offset, in degrees (normally, use 0)
      */
     public void enableDashedHighlightLine(float lineLength, float spaceLength, float phase) {
-        mHighlightDashPathEffect = new DashPathEffect(new float[] {
-                lineLength, spaceLength
-        }, phase);
+        mHighlightDashPathEffect = new DashPathEffect(new float[] { lineLength, spaceLength }, phase);
     }
 
     /**
@@ -106,6 +108,7 @@ public abstract class LineScatterCandleRadarDataSet<T extends Entry> extends Bar
     }
 
     @Override
+    @Nullable()
     public DashPathEffect getDashPathEffectHighlight() {
         return mHighlightDashPathEffect;
     }

@@ -1,16 +1,15 @@
-
 package com.github.mikephil.charting.components;
 
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.util.Log;
-
 import com.github.mikephil.charting.formatter.DefaultAxisValueFormatter;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.utils.Utils;
-
 import java.util.ArrayList;
 import java.util.List;
+import com.github.mikephil.charting.Initializer;
+import androidx.annotation.Nullable;
 
 /**
  * Base-class of all axes (previously called labels).
@@ -35,12 +34,12 @@ public abstract class AxisBase extends ComponentBase {
     /**
      * the actual array of entries
      */
-    public float[] mEntries = new float[]{};
+    public float[] mEntries = new float[] {};
 
     /**
      * axis label entries only used for centered labels
      */
-    public float[] mCenteredEntries = new float[]{};
+    public float[] mCenteredEntries = new float[] {};
 
     /**
      * the number of entries the legend contains
@@ -95,11 +94,13 @@ public abstract class AxisBase extends ComponentBase {
     /**
      * the path effect of the axis line that makes dashed lines possible
      */
+    @Nullable()
     private DashPathEffect mAxisLineDashPathEffect = null;
 
     /**
      * the path effect of the grid lines that makes dashed lines possible
      */
+    @Nullable()
     private DashPathEffect mGridDashPathEffect = null;
 
     /**
@@ -153,6 +154,7 @@ public abstract class AxisBase extends ComponentBase {
     public float mAxisRange = 0f;
 
     private int mAxisMinLabels = 2;
+
     private int mAxisMaxLabels = 25;
 
     /**
@@ -347,12 +349,10 @@ public abstract class AxisBase extends ComponentBase {
      * @param count the number of y-axis labels that should be displayed
      */
     public void setLabelCount(int count) {
-
         if (count > getAxisMaxLabels())
             count = getAxisMaxLabels();
         if (count < getAxisMinLabels())
             count = getAxisMinLabels();
-
         mLabelCount = count;
         mForceLabels = false;
     }
@@ -369,7 +369,6 @@ public abstract class AxisBase extends ComponentBase {
      *              to have uneven values
      */
     public void setLabelCount(int count, boolean force) {
-
         setLabelCount(count);
         mForceLabels = force;
     }
@@ -435,11 +434,8 @@ public abstract class AxisBase extends ComponentBase {
      */
     public void addLimitLine(LimitLine l) {
         mLimitLines.add(l);
-
         if (mLimitLines.size() > 6) {
-            Log.e("MPAndroiChart",
-                    "Warning! You have more than 6 LimitLines on your axis, do you really want " +
-                            "that?");
+            Log.e("MPAndroiChart", "Warning! You have more than 6 LimitLines on your axis, do you really want " + "that?");
         }
     }
 
@@ -488,7 +484,9 @@ public abstract class AxisBase extends ComponentBase {
      *
      * @param enabled
      */
-    public void setDrawGridLinesBehindData(boolean enabled) { mDrawGridLinesBehindData = enabled; }
+    public void setDrawGridLinesBehindData(boolean enabled) {
+        mDrawGridLinesBehindData = enabled;
+    }
 
     public boolean isDrawGridLinesBehindDataEnabled() {
         return mDrawGridLinesBehindData;
@@ -501,21 +499,16 @@ public abstract class AxisBase extends ComponentBase {
      * @return
      */
     public String getLongestLabel() {
-
         String longest = "";
-
         for (int i = 0; i < mEntries.length; i++) {
             String text = getFormattedLabel(i);
-
             if (text != null && longest.length() < text.length())
                 longest = text;
         }
-
         return longest;
     }
 
     public String getFormattedLabel(int index) {
-
         if (index < 0 || index >= mEntries.length)
             return "";
         else
@@ -531,8 +524,8 @@ public abstract class AxisBase extends ComponentBase {
      *
      * @param f
      */
+    @Initializer()
     public void setValueFormatter(IAxisValueFormatter f) {
-
         if (f == null)
             mAxisValueFormatter = new DefaultAxisValueFormatter(mDecimals);
         else
@@ -545,12 +538,8 @@ public abstract class AxisBase extends ComponentBase {
      * @return
      */
     public IAxisValueFormatter getValueFormatter() {
-
-        if (mAxisValueFormatter == null ||
-                (mAxisValueFormatter instanceof DefaultAxisValueFormatter &&
-                        ((DefaultAxisValueFormatter)mAxisValueFormatter).getDecimalDigits() != mDecimals))
+        if (mAxisValueFormatter == null || (mAxisValueFormatter instanceof DefaultAxisValueFormatter && ((DefaultAxisValueFormatter) mAxisValueFormatter).getDecimalDigits() != mDecimals))
             mAxisValueFormatter = new DefaultAxisValueFormatter(mDecimals);
-
         return mAxisValueFormatter;
     }
 
@@ -564,9 +553,7 @@ public abstract class AxisBase extends ComponentBase {
      * @param phase       offset, in degrees (normally, use 0)
      */
     public void enableGridDashedLine(float lineLength, float spaceLength, float phase) {
-        mGridDashPathEffect = new DashPathEffect(new float[]{
-                lineLength, spaceLength
-        }, phase);
+        mGridDashPathEffect = new DashPathEffect(new float[] { lineLength, spaceLength }, phase);
     }
 
     /**
@@ -601,10 +588,10 @@ public abstract class AxisBase extends ComponentBase {
      *
      * @return
      */
+    @Nullable()
     public DashPathEffect getGridDashPathEffect() {
         return mGridDashPathEffect;
     }
-
 
     /**
      * Enables the axis line to be drawn in dashed mode, e.g. like this
@@ -616,9 +603,7 @@ public abstract class AxisBase extends ComponentBase {
      * @param phase       offset, in degrees (normally, use 0)
      */
     public void enableAxisLineDashedLine(float lineLength, float spaceLength, float phase) {
-        mAxisLineDashPathEffect = new DashPathEffect(new float[]{
-                lineLength, spaceLength
-        }, phase);
+        mAxisLineDashPathEffect = new DashPathEffect(new float[] { lineLength, spaceLength }, phase);
     }
 
     /**
@@ -653,6 +638,7 @@ public abstract class AxisBase extends ComponentBase {
      *
      * @return
      */
+    @Nullable()
     public DashPathEffect getAxisLineDashPathEffect() {
         return mAxisLineDashPathEffect;
     }
@@ -660,7 +646,6 @@ public abstract class AxisBase extends ComponentBase {
     /**
      * ###### BELOW CODE RELATED TO CUSTOM AXIS VALUES ######
      */
-
     public float getAxisMaximum() {
         return mAxisMaximum;
     }
@@ -761,23 +746,18 @@ public abstract class AxisBase extends ComponentBase {
      * @param dataMax the max value according to chart data
      */
     public void calculate(float dataMin, float dataMax) {
-
         // if custom, use value as is, else use data value
         float min = mCustomAxisMin ? mAxisMinimum : (dataMin - mSpaceMin);
         float max = mCustomAxisMax ? mAxisMaximum : (dataMax + mSpaceMax);
-
         // temporary range (before calculations)
         float range = Math.abs(max - min);
-
         // in case all values are equal
         if (range == 0f) {
             max = max + 1f;
             min = min - 1f;
         }
-
         this.mAxisMinimum = min;
         this.mAxisMaximum = max;
-
         // actual range
         this.mAxisRange = Math.abs(max - min);
     }
@@ -785,32 +765,28 @@ public abstract class AxisBase extends ComponentBase {
     /**
      * Gets extra spacing for `axisMinimum` to be added to automatically calculated `axisMinimum`
      */
-    public float getSpaceMin()
-    {
+    public float getSpaceMin() {
         return mSpaceMin;
     }
 
     /**
      * Sets extra spacing for `axisMinimum` to be added to automatically calculated `axisMinimum`
      */
-    public void setSpaceMin(float mSpaceMin)
-    {
+    public void setSpaceMin(float mSpaceMin) {
         this.mSpaceMin = mSpaceMin;
     }
 
     /**
      * Gets extra spacing for `axisMaximum` to be added to automatically calculated `axisMaximum`
      */
-    public float getSpaceMax()
-    {
+    public float getSpaceMax() {
         return mSpaceMax;
     }
 
     /**
      * Sets extra spacing for `axisMaximum` to be added to automatically calculated `axisMaximum`
      */
-    public void setSpaceMax(float mSpaceMax)
-    {
+    public void setSpaceMax(float mSpaceMax) {
         this.mSpaceMax = mSpaceMax;
     }
 }

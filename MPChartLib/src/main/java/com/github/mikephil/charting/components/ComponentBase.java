@@ -1,10 +1,9 @@
-
 package com.github.mikephil.charting.components;
 
 import android.graphics.Color;
 import android.graphics.Typeface;
-
 import com.github.mikephil.charting.utils.Utils;
+import androidx.annotation.Nullable;
 
 /**
  * This class encapsulates everything both Axis, Legend and LimitLines have in common.
@@ -31,6 +30,7 @@ public abstract class ComponentBase {
     /**
      * the typeface used for the labels
      */
+    @Nullable()
     protected Typeface mTypeface = null;
 
     /**
@@ -43,9 +43,7 @@ public abstract class ComponentBase {
      */
     protected int mTextColor = Color.BLACK;
 
-
     public ComponentBase() {
-
     }
 
     /**
@@ -93,6 +91,7 @@ public abstract class ComponentBase {
      *
      * @return
      */
+    @Nullable()
     public Typeface getTypeface() {
         return mTypeface;
     }
@@ -113,12 +112,10 @@ public abstract class ComponentBase {
      * @param size the text size, in DP
      */
     public void setTextSize(float size) {
-
         if (size > 24f)
             size = 24f;
         if (size < 6f)
             size = 6f;
-
         mTextSize = Utils.convertDpToPixel(size);
     }
 
@@ -130,7 +127,6 @@ public abstract class ComponentBase {
     public float getTextSize() {
         return mTextSize;
     }
-
 
     /**
      * Sets the text color to use for the labels. Make sure to use
