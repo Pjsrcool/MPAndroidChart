@@ -6,10 +6,11 @@ import android.view.View;
 
 import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.highlight.Highlight;
-
+import com.github.mikephil.charting.Initializer;
 /**
  * Created by philipp on 12/06/15.
  */
+
 public abstract class ChartTouchListener<T extends Chart<?>> extends GestureDetector.SimpleOnGestureListener implements View.OnTouchListener {
 
     public enum ChartGesture {
@@ -87,6 +88,7 @@ public abstract class ChartTouchListener<T extends Chart<?>> extends GestureDete
      *
      * @param high
      */
+    @Initializer
     public void setLastHighlighted(Highlight high) {
         mLastHighlighted = high;
     }

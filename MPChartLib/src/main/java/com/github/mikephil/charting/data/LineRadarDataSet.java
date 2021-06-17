@@ -9,12 +9,13 @@ import com.github.mikephil.charting.interfaces.datasets.ILineRadarDataSet;
 import com.github.mikephil.charting.utils.Utils;
 
 import java.util.List;
-
+import com.github.mikephil.charting.Initializer;
 /**
  * Base dataset for line and radar DataSets.
  *
  * @author Philipp Jahoda
  */
+
 public abstract class LineRadarDataSet<T extends Entry> extends LineScatterCandleRadarDataSet<T> implements ILineRadarDataSet<T> {
 
     // TODO: Move to using `Fill` class
@@ -75,6 +76,7 @@ public abstract class LineRadarDataSet<T extends Entry> extends LineScatterCandl
      * @param drawable
      */
     @TargetApi(18)
+    @Initializer
     public void setFillDrawable(Drawable drawable) {
         this.mFillDrawable = drawable;
     }

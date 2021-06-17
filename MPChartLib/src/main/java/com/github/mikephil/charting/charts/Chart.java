@@ -55,12 +55,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
-
+import com.github.mikephil.charting.Initializer;
 /**
  * Baseclass of all Chart-Views.
  *
  * @author Philipp Jahoda
  */
+
 public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Entry>>> extends
         ViewGroup
         implements ChartInterface {
@@ -204,6 +205,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * initialize all paints and stuff
      */
+    @Initializer
     protected void init() {
 
         setWillNotDraw(false);
@@ -308,6 +310,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * Clears the chart from all data (sets it to null) and refreshes it (by
      * calling invalidate()).
      */
+    @Initializer
     public void clear() {
         mData = null;
         mOffsetsCalculated = false;
@@ -525,6 +528,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @return
      */
+    @Initializer
     public boolean valuesToHighlight() {
         return mIndicesToHighlight == null || mIndicesToHighlight.length <= 0
                 || mIndicesToHighlight[0] == null ? false
@@ -778,6 +782,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * draws all MarkerViews on the highlighted positions
      */
+    @Initializer
     protected void drawMarkers(Canvas canvas) {
 
         // if there is no marker view or drawing marker is disabled
@@ -1031,6 +1036,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @param l
      */
+    @Initializer
     public void setOnChartValueSelectedListener(OnChartValueSelectedListener l) {
         this.mSelectionListener = l;
     }
@@ -1041,6 +1047,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @param l
      */
+    @Initializer
     public void setOnChartGestureListener(OnChartGestureListener l) {
         this.mGestureListener = l;
     }
@@ -1492,6 +1499,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @param highlighter
      */
+    @Initializer
     public void setHighlighter(ChartHighlighter highlighter) {
         mHighlighter = highlighter;
     }

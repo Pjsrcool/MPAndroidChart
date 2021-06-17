@@ -19,13 +19,14 @@ import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
-
+import com.github.mikephil.charting.Initializer;
 /**
  * TouchListener for Bar-, Line-, Scatter- and CandleStickChart with handles all
  * touch interaction. Longpress == Zoom out. Double-Tap == Zoom in.
  *
  * @author Philipp Jahoda
  */
+
 public class BarLineChartTouchListener extends ChartTouchListener<BarLineChartBase<? extends BarLineScatterCandleBubbleData<?
         extends IBarLineScatterCandleBubbleDataSet<? extends Entry>>>> {
 
@@ -298,6 +299,7 @@ public class BarLineChartTouchListener extends ChartTouchListener<BarLineChartBa
      *
      * @param event
      */
+    @Initializer
     private void saveTouchStart(MotionEvent event) {
 
         mSavedMatrix.set(mMatrix);

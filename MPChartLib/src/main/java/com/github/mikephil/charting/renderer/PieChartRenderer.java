@@ -32,6 +32,7 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
+import com.github.mikephil.charting.Initializer;
 
 public class PieChartRenderer extends DataRenderer {
 
@@ -121,6 +122,7 @@ public class PieChartRenderer extends DataRenderer {
     }
 
     @Override
+    @Initializer
     public void drawData(Canvas c) {
 
         int width = (int) mViewPortHandler.getChartWidth();

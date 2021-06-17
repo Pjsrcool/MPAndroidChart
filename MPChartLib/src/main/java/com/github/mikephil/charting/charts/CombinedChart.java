@@ -18,13 +18,14 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.dataprovider.CombinedDataProvider;
 import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import com.github.mikephil.charting.renderer.CombinedChartRenderer;
-
+import com.github.mikephil.charting.Initializer;
 /**
  * This chart class allows the combination of lines, bars, scatter and candle
  * data all displayed in one chart area.
  *
  * @author Philipp Jahoda
  */
+
 public class CombinedChart extends BarLineChartBase<CombinedData> implements CombinedDataProvider {
 
     /**
@@ -68,6 +69,7 @@ public class CombinedChart extends BarLineChartBase<CombinedData> implements Com
     }
 
     @Override
+    @Initializer
     protected void init() {
         super.init();
 

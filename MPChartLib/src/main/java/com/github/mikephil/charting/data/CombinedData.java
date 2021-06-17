@@ -9,13 +9,14 @@ import com.github.mikephil.charting.interfaces.datasets.IBarLineScatterCandleBub
 
 import java.util.ArrayList;
 import java.util.List;
-
+import com.github.mikephil.charting.Initializer;
 /**
  * Data object that allows the combination of Line-, Bar-, Scatter-, Bubble- and
  * CandleData. Used in the CombinedChart class.
  *
  * @author Philipp Jahoda
  */
+
 public class CombinedData extends BarLineScatterCandleBubbleData<IBarLineScatterCandleBubbleDataSet<? extends Entry>> {
 
     private LineData mLineData;
@@ -140,6 +141,7 @@ public class CombinedData extends BarLineScatterCandleBubbleData<IBarLineScatter
      *
      * @return
      */
+    @Initializer
     public List<BarLineScatterCandleBubbleData> getAllData() {
 
         List<BarLineScatterCandleBubbleData> data = new ArrayList<BarLineScatterCandleBubbleData>();

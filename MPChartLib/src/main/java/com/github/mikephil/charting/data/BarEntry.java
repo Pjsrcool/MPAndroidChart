@@ -4,12 +4,13 @@ import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
 
 import com.github.mikephil.charting.highlight.Range;
-
+import com.github.mikephil.charting.Initializer;
 /**
  * Entry class for the BarChart. (especially stacked bars)
  *
  * @author Philipp Jahoda
  */
+
 @SuppressLint("ParcelCreator")
 public class BarEntry extends Entry {
 
@@ -239,6 +240,7 @@ public class BarEntry extends Entry {
         return mNegativeSum;
     }
 
+    @Initializer
     private void calcPosNegSum() {
 
         if (mYVals == null) {

@@ -35,12 +35,13 @@ import com.github.mikephil.charting.utils.MPPointD;
 import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.Utils;
-
+import com.github.mikephil.charting.Initializer;
 /**
  * Base-class of LineChart, BarChart, ScatterChart and CandleStickChart.
  *
  * @author Philipp Jahoda
  */
+
 @SuppressLint("RtlHardcoded")
 public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<? extends
         IBarLineScatterCandleBubbleDataSet<? extends Entry>>>
@@ -151,6 +152,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
     }
 
     @Override
+    @Initializer
     protected void init() {
         super.init();
 
@@ -1018,6 +1020,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
      *
      * @param drawListener
      */
+    @Initializer
     public void setOnDrawListener(OnDrawListener drawListener) {
         this.mDrawListener = drawListener;
     }

@@ -17,6 +17,7 @@ import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.List;
+import com.github.mikephil.charting.Initializer;
 
 public class YAxisRenderer extends AxisRenderer {
 
@@ -223,6 +224,7 @@ public class YAxisRenderer extends AxisRenderer {
     /**
      * Draws the zero line.
      */
+    @Initializer
     protected void drawZeroLine(Canvas c) {
 
         int clipRestoreCount = c.save();
