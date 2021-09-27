@@ -17,13 +17,16 @@ import com.github.mikephil.charting.utils.FSize;
 import com.github.mikephil.charting.utils.MPPointF;
 
 import java.lang.ref.WeakReference;
-
+import com.github.mikephil.charting.Initializer;
 /**
  * View that can be displayed when selecting values in the chart. Extend this class to provide custom layouts for your
  * markers.
  *
  * @author Philipp Jahoda
  */
+import androidx.annotation.Nullable;
+import androidx.annotation.Nullable;
+
 public class MarkerImage implements IMarker {
 
     private Context mContext;
@@ -85,10 +88,12 @@ public class MarkerImage implements IMarker {
         return mSize;
     }
 
+    @Initializer
     public void setChartView(Chart chart) {
         mWeakChart = new WeakReference<>(chart);
     }
 
+    @Nullable
     public Chart getChartView() {
         return mWeakChart == null ? null : mWeakChart.get();
     }
