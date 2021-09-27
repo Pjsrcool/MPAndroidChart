@@ -22,6 +22,7 @@ import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.List;
+import com.github.mikephil.charting.Initializer;
 
 public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
 
@@ -85,6 +86,7 @@ public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
 
     private RectF mBarShadowRectBuffer = new RectF();
 
+    @Initializer
     protected void drawDataSet(Canvas c, IBarDataSet dataSet, int index) {
 
         Transformer trans = mChart.getTransformer(dataSet.getAxisDependency());
