@@ -23,6 +23,7 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import androidx.annotation.Nullable;
 
 public class LegendRenderer extends Renderer {
 
@@ -564,7 +565,7 @@ public class LegendRenderer extends Renderer {
      * @param y
      * @param label the label to draw
      */
-    protected void drawLabel(Canvas c, float x, float y, String label) {
+    protected void drawLabel(Canvas c, float x, float y, @Nullable String label) {
         c.drawText(label, x, y, mLegendLabelPaint);
     }
 }

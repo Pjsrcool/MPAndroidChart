@@ -6,10 +6,13 @@ import android.view.View;
 
 import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.highlight.Highlight;
-
+import com.github.mikephil.charting.Initializer;
 /**
  * Created by philipp on 12/06/15.
  */
+import androidx.annotation.Nullable;
+import androidx.annotation.Nullable;
+
 public abstract class ChartTouchListener<T extends Chart<?>> extends GestureDetector.SimpleOnGestureListener implements View.OnTouchListener {
 
     public enum ChartGesture {
@@ -38,6 +41,7 @@ public abstract class ChartTouchListener<T extends Chart<?>> extends GestureDete
     /**
      * the last highlighted object (via touch)
      */
+    @Nullable
     protected Highlight mLastHighlighted;
 
     /**
@@ -87,7 +91,8 @@ public abstract class ChartTouchListener<T extends Chart<?>> extends GestureDete
      *
      * @param high
      */
-    public void setLastHighlighted(Highlight high) {
+    @Initializer
+    public void setLastHighlighted(@Nullable Highlight high) {
         mLastHighlighted = high;
     }
 
@@ -115,7 +120,7 @@ public abstract class ChartTouchListener<T extends Chart<?>> extends GestureDete
      *
      * @param e
      */
-    protected void performHighlight(Highlight h, MotionEvent e) {
+    protected void performHighlight(@Nullable Highlight h, MotionEvent e) {
 
         if (h == null || h.equalTo(mLastHighlighted)) {
             mChart.highlightValue(null, true);

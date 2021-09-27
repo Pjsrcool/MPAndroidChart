@@ -5,10 +5,11 @@ import com.github.mikephil.charting.charts.PieRadarChartBase;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import androidx.annotation.Nullable;
 /**
  * Created by philipp on 12/06/16.
  */
+
 public abstract class PieRadarHighlighter<T extends PieRadarChartBase> implements IHighlighter
 {
 
@@ -24,6 +25,7 @@ public abstract class PieRadarHighlighter<T extends PieRadarChartBase> implement
     }
 
     @Override
+    @Nullable
     public Highlight getHighlight(float x, float y) {
 
         float touchDistanceToCenter = mChart.distanceToCenter(x, y);
@@ -62,5 +64,6 @@ public abstract class PieRadarHighlighter<T extends PieRadarChartBase> implement
      * @param y
      * @return
      */
+    @Nullable
     protected abstract Highlight getClosestHighlight(int index, float x, float y);
 }

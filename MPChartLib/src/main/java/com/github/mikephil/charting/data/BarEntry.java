@@ -4,12 +4,15 @@ import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
 
 import com.github.mikephil.charting.highlight.Range;
-
+import com.github.mikephil.charting.Initializer;
 /**
  * Entry class for the BarChart. (especially stacked bars)
  *
  * @author Philipp Jahoda
  */
+import androidx.annotation.Nullable;
+import androidx.annotation.Nullable;
+
 @SuppressLint("ParcelCreator")
 public class BarEntry extends Entry {
 
@@ -21,6 +24,7 @@ public class BarEntry extends Entry {
     /**
      * the ranges for the individual stack values - automatically calculated
      */
+    @Nullable
     private Range[] mRanges;
 
     /**
@@ -50,7 +54,7 @@ public class BarEntry extends Entry {
      * @param y
      * @param data - Spot for additional data this Entry represents.
      */
-    public BarEntry(float x, float y, Object data) {
+    public BarEntry(float x, float y, @Nullable Object data) {
         super(x, y, data);
     }
 
@@ -239,6 +243,7 @@ public class BarEntry extends Entry {
         return mNegativeSum;
     }
 
+    @Initializer
     private void calcPosNegSum() {
 
         if (mYVals == null) {

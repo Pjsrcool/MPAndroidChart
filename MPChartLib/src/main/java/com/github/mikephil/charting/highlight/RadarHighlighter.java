@@ -7,10 +7,11 @@ import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
 
 import java.util.List;
-
+import androidx.annotation.Nullable;
 /**
  * Created by philipp on 12/06/16.
  */
+
 public class RadarHighlighter extends PieRadarHighlighter<RadarChart> {
 
     public RadarHighlighter(RadarChart chart) {
@@ -18,6 +19,7 @@ public class RadarHighlighter extends PieRadarHighlighter<RadarChart> {
     }
 
     @Override
+    @Nullable
     protected Highlight getClosestHighlight(int index, float x, float y) {
 
         List<Highlight> highlights = getHighlightsAtIndex(index);

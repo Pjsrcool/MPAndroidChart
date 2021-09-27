@@ -10,7 +10,7 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import com.github.mikephil.charting.Initializer;
 /**
  * Class representing the legend of the chart. The legend will contain one entry
  * per color and DataSet. Multiple colors in one DataSet are grouped together.
@@ -18,6 +18,9 @@ import java.util.List;
  *
  * @author Philipp Jahoda
  */
+import androidx.annotation.Nullable;
+import androidx.annotation.Nullable;
+
 public class Legend extends ComponentBase {
 
     public enum LegendForm {
@@ -113,6 +116,7 @@ public class Legend extends ComponentBase {
     /**
      * Line dash path effect used for shapes that consist of lines.
      */
+    @Nullable
     private DashPathEffect mFormLineDashEffect = null;
 
     /**
@@ -240,6 +244,7 @@ public class Legend extends ComponentBase {
         return mExtraEntries;
     }
 
+    @Initializer
     public void setExtra(List<LegendEntry> entries) {
         mExtraEntries = entries.toArray(new LegendEntry[entries.size()]);
     }
@@ -478,6 +483,7 @@ public class Legend extends ComponentBase {
     /**
      * @return The line dash path effect used for shapes that consist of lines.
      */
+    @Nullable
     public DashPathEffect getFormLineDashEffect() {
         return mFormLineDashEffect;
     }
