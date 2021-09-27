@@ -15,13 +15,14 @@ import com.github.mikephil.charting.renderer.RadarChartRenderer;
 import com.github.mikephil.charting.renderer.XAxisRendererRadarChart;
 import com.github.mikephil.charting.renderer.YAxisRendererRadarChart;
 import com.github.mikephil.charting.utils.Utils;
-
+import com.github.mikephil.charting.Initializer;
 /**
  * Implementation of the RadarChart, a "spidernet"-like chart. It works best
  * when displaying 5-10 entries per DataSet.
  *
  * @author Philipp Jahoda
  */
+
 public class RadarChart extends PieRadarChartBase<RadarData> {
 
     /**
@@ -80,6 +81,7 @@ public class RadarChart extends PieRadarChartBase<RadarData> {
     }
 
     @Override
+    @Initializer
     protected void init() {
         super.init();
 

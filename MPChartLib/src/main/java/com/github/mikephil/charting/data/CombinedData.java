@@ -9,13 +9,16 @@ import com.github.mikephil.charting.interfaces.datasets.IBarLineScatterCandleBub
 
 import java.util.ArrayList;
 import java.util.List;
-
+import com.github.mikephil.charting.Initializer;
 /**
  * Data object that allows the combination of Line-, Bar-, Scatter-, Bubble- and
  * CandleData. Used in the CombinedChart class.
  *
  * @author Philipp Jahoda
  */
+import androidx.annotation.Nullable;
+import androidx.annotation.Nullable;
+
 public class CombinedData extends BarLineScatterCandleBubbleData<IBarLineScatterCandleBubbleDataSet<? extends Entry>> {
 
     private LineData mLineData;
@@ -140,6 +143,7 @@ public class CombinedData extends BarLineScatterCandleBubbleData<IBarLineScatter
      *
      * @return
      */
+    @Initializer
     public List<BarLineScatterCandleBubbleData> getAllData() {
 
         List<BarLineScatterCandleBubbleData> data = new ArrayList<BarLineScatterCandleBubbleData>();
@@ -184,6 +188,7 @@ public class CombinedData extends BarLineScatterCandleBubbleData<IBarLineScatter
      * @return the entry that is highlighted
      */
     @Override
+    @Nullable
     public Entry getEntryForHighlight(Highlight highlight) {
 
         if (highlight.getDataIndex() >= getAllData().size())
@@ -213,6 +218,7 @@ public class CombinedData extends BarLineScatterCandleBubbleData<IBarLineScatter
      * @param highlight current highlight
      * @return dataset related to highlight
      */
+    @Nullable
     public IBarLineScatterCandleBubbleDataSet<? extends Entry> getDataSetByHighlight(Highlight highlight) {
         if (highlight.getDataIndex() >= getAllData().size())
             return null;
