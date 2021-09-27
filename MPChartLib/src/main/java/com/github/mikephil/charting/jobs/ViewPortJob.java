@@ -6,7 +6,7 @@ import android.view.View;
 import com.github.mikephil.charting.utils.ObjectPool;
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.ViewPortHandler;
-
+import androidx.annotation.Nullable;
 /**
  * Runnable that is used for viewport modifications since they cannot be
  * executed at any time. This can be used to delay the execution of viewport
@@ -16,6 +16,7 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
  * 
  * @author Philipp Jahoda
  */
+
 public abstract class ViewPortJob extends ObjectPool.Poolable implements Runnable {
 
     protected float[] pts = new float[2];
@@ -26,8 +27,8 @@ public abstract class ViewPortJob extends ObjectPool.Poolable implements Runnabl
     protected Transformer mTrans;
     protected View view;
 
-    public ViewPortJob(ViewPortHandler viewPortHandler, float xValue, float yValue,
-                       Transformer trans, View v) {
+    public ViewPortJob(@Nullable ViewPortHandler viewPortHandler, float xValue, float yValue,
+                       @Nullable Transformer trans, @Nullable View v) {
 
         this.mViewPortHandler = viewPortHandler;
         this.xValue = xValue;

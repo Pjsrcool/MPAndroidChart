@@ -35,12 +35,15 @@ import com.github.mikephil.charting.utils.MPPointD;
 import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.Utils;
-
+import com.github.mikephil.charting.Initializer;
 /**
  * Base-class of LineChart, BarChart, ScatterChart and CandleStickChart.
  *
  * @author Philipp Jahoda
  */
+import androidx.annotation.Nullable;
+import androidx.annotation.Nullable;
+
 @SuppressLint("RtlHardcoded")
 public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<? extends
         IBarLineScatterCandleBubbleDataSet<? extends Entry>>>
@@ -151,6 +154,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
     }
 
     @Override
+    @Initializer
     protected void init() {
         super.init();
 
@@ -1018,6 +1022,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
      *
      * @param drawListener
      */
+    @Initializer
     public void setOnDrawListener(OnDrawListener drawListener) {
         this.mDrawListener = drawListener;
     }
@@ -1041,6 +1046,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
      * @param e
      * @return
      */
+    @Nullable
     public MPPointF getPosition(Entry e, AxisDependency axis) {
 
         if (e == null)
@@ -1352,6 +1358,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
      * @param y
      * @return
      */
+    @Nullable
     public Entry getEntryByTouchPoint(float x, float y) {
         Highlight h = getHighlightByTouchPoint(x, y);
         if (h != null) {
@@ -1367,6 +1374,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
      * @param y
      * @return
      */
+    @Nullable
     public IBarLineScatterCandleBubbleDataSet getDataSetByTouchPoint(float x, float y) {
         Highlight h = getHighlightByTouchPoint(x, y);
         if (h != null) {
@@ -1632,6 +1640,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
     }
 
     @Override
+    @Nullable
     public Paint getPaint(int which) {
         Paint p = super.getPaint(which);
         if (p != null)

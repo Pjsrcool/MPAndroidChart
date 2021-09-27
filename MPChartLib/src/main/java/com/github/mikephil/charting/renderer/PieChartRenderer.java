@@ -32,6 +32,8 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
+import com.github.mikephil.charting.Initializer;
+import androidx.annotation.Nullable;
 
 public class PieChartRenderer extends DataRenderer {
 
@@ -57,6 +59,7 @@ public class PieChartRenderer extends DataRenderer {
     private Paint mEntryLabelsPaint;
 
     private StaticLayout mCenterTextLayout;
+    @Nullable
     private CharSequence mCenterTextLastValue;
     private RectF mCenterTextLastBounds = new RectF();
     private RectF[] mRectBuffer = {new RectF(), new RectF(), new RectF()};
@@ -64,6 +67,7 @@ public class PieChartRenderer extends DataRenderer {
     /**
      * Bitmap for drawing the center hole
      */
+    @Nullable
     protected WeakReference<Bitmap> mDrawBitmap;
 
     protected Canvas mBitmapCanvas;
@@ -121,6 +125,7 @@ public class PieChartRenderer extends DataRenderer {
     }
 
     @Override
+    @Initializer
     public void drawData(Canvas c) {
 
         int width = (int) mViewPortHandler.getChartWidth();
