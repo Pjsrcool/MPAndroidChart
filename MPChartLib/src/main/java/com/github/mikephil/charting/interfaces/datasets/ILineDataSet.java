@@ -5,10 +5,11 @@ import android.graphics.DashPathEffect;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IFillFormatter;
-
+import androidx.annotation.Nullable;
 /**
  * Created by Philpp Jahoda on 21/10/15.
  */
+
 public interface ILineDataSet extends ILineRadarDataSet<Entry> {
 
     /**
@@ -84,6 +85,7 @@ public interface ILineDataSet extends ILineRadarDataSet<Entry> {
      *
      * @return
      */
+    @Nullable
     DashPathEffect getDashPathEffect();
 
     /**
