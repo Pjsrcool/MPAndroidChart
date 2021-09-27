@@ -15,12 +15,15 @@ import com.github.mikephil.charting.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import com.github.mikephil.charting.Initializer;
 /**
  * Created by Philipp Jahoda on 21/10/15.
  * This is the base dataset of all DataSets. It's purpose is to implement critical methods
  * provided by the IDataSet interface.
  */
+import androidx.annotation.Nullable;
+import androidx.annotation.Nullable;
+
 public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
 
     /**
@@ -61,6 +64,7 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     private Legend.LegendForm mForm = Legend.LegendForm.DEFAULT;
     private float mFormSize = Float.NaN;
     private float mFormLineWidth = Float.NaN;
+    @Nullable
     private DashPathEffect mFormLineDashEffect = null;
 
     /**
@@ -290,6 +294,7 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     }
 
     @Override
+    @Initializer
     public boolean needsFormatter() {
         return mValueFormatter == null;
     }
@@ -306,6 +311,7 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     }
 
     @Override
+    @Initializer
     public void setValueTypeface(Typeface tf) {
         mValueTypeface = tf;
     }
@@ -367,6 +373,7 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     }
 
     @Override
+    @Nullable
     public DashPathEffect getFormLineDashEffect() {
         return mFormLineDashEffect;
     }

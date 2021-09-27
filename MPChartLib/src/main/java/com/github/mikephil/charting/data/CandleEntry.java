@@ -3,12 +3,13 @@ package com.github.mikephil.charting.data;
 
 import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
-
+import androidx.annotation.Nullable;
 /**
  * Subclass of Entry that holds all values for one entry in a CandleStickChart.
  * 
  * @author Philipp Jahoda
  */
+
 @SuppressLint("ParcelCreator")
 public class CandleEntry extends Entry {
 
@@ -53,7 +54,7 @@ public class CandleEntry extends Entry {
      * @param data Spot for additional data this Entry represents
      */
     public CandleEntry(float x, float shadowH, float shadowL, float open, float close,
-                       Object data) {
+                       @Nullable Object data) {
         super(x, (shadowH + shadowL) / 2f, data);
 
         this.mShadowHigh = shadowH;
