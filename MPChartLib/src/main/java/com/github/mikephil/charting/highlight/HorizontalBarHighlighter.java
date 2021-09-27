@@ -10,10 +10,11 @@ import com.github.mikephil.charting.utils.MPPointD;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import androidx.annotation.Nullable;
 /**
  * Created by Philipp Jahoda on 22/07/15.
  */
+
 public class HorizontalBarHighlighter extends BarHighlighter {
 
 	public HorizontalBarHighlighter(BarDataProvider chart) {
@@ -21,6 +22,7 @@ public class HorizontalBarHighlighter extends BarHighlighter {
 	}
 
 	@Override
+	@Nullable
 	public Highlight getHighlight(float x, float y) {
 
 		BarData barData = mChart.getBarData();

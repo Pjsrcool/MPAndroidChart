@@ -26,6 +26,8 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.List;
+import com.github.mikephil.charting.Initializer;
+import androidx.annotation.Nullable;
 
 public class LineChartRenderer extends LineRadarRenderer {
 
@@ -40,6 +42,7 @@ public class LineChartRenderer extends LineRadarRenderer {
      * Bitmap object used for drawing the paths (otherwise they are too long if
      * rendered directly on the canvas)
      */
+    @Nullable
     protected WeakReference<Bitmap> mDrawBitmap;
 
     /**
@@ -71,6 +74,7 @@ public class LineChartRenderer extends LineRadarRenderer {
     }
 
     @Override
+    @Initializer
     public void drawData(Canvas c) {
 
         int width = (int) mViewPortHandler.getChartWidth();
@@ -130,6 +134,7 @@ public class LineChartRenderer extends LineRadarRenderer {
         mRenderPaint.setPathEffect(null);
     }
 
+    @Initializer
     protected void drawHorizontalBezier(ILineDataSet dataSet) {
 
         float phaseY = mAnimator.getPhaseY();
@@ -774,6 +779,7 @@ public class LineChartRenderer extends LineRadarRenderer {
          * @param set
          * @return
          */
+        @Initializer
         protected boolean init(ILineDataSet set) {
 
             int size = set.getCircleColorCount();
