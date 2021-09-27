@@ -13,12 +13,13 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.dataprovider.BarDataProvider;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.renderer.BarChartRenderer;
-
+import androidx.annotation.Nullable;
 /**
  * Chart that draws bars.
  *
  * @author Philipp Jahoda
  */
+
 public class BarChart extends BarLineChartBase<BarData> implements BarDataProvider {
 
     /**
@@ -87,6 +88,7 @@ public class BarChart extends BarLineChartBase<BarData> implements BarDataProvid
      * @return
      */
     @Override
+    @Nullable
     public Highlight getHighlightByTouchPoint(float x, float y) {
 
         if (mData == null) {

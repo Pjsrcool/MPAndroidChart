@@ -11,12 +11,15 @@ import com.github.mikephil.charting.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import com.github.mikephil.charting.Initializer;
 /**
  * Base-class of all axes (previously called labels).
  *
  * @author Philipp Jahoda
  */
+import androidx.annotation.Nullable;
+import androidx.annotation.Nullable;
+
 public abstract class AxisBase extends ComponentBase {
 
     /**
@@ -95,11 +98,13 @@ public abstract class AxisBase extends ComponentBase {
     /**
      * the path effect of the axis line that makes dashed lines possible
      */
+    @Nullable
     private DashPathEffect mAxisLineDashPathEffect = null;
 
     /**
      * the path effect of the grid lines that makes dashed lines possible
      */
+    @Nullable
     private DashPathEffect mGridDashPathEffect = null;
 
     /**
@@ -531,6 +536,7 @@ public abstract class AxisBase extends ComponentBase {
      *
      * @param f
      */
+    @Initializer
     public void setValueFormatter(IAxisValueFormatter f) {
 
         if (f == null)
@@ -601,6 +607,7 @@ public abstract class AxisBase extends ComponentBase {
      *
      * @return
      */
+    @Nullable
     public DashPathEffect getGridDashPathEffect() {
         return mGridDashPathEffect;
     }
@@ -653,6 +660,7 @@ public abstract class AxisBase extends ComponentBase {
      *
      * @return
      */
+    @Nullable
     public DashPathEffect getAxisLineDashPathEffect() {
         return mAxisLineDashPathEffect;
     }

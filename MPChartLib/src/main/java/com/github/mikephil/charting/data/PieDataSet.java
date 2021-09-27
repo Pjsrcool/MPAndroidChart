@@ -30,6 +30,7 @@ public class PieDataSet extends DataSet<PieEntry> implements IPieDataSet {
     private float mValueLinePart1Length = 0.3f;
     private float mValueLinePart2Length = 0.4f;
     private boolean mValueLineVariableLength = true;
+    @Nullable
     private Integer mHighlightColor = null;
 
     public PieDataSet(List<PieEntry> yVals, String label) {
