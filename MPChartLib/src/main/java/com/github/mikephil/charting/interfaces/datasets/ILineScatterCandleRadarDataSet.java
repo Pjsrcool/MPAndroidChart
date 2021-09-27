@@ -3,10 +3,11 @@ package com.github.mikephil.charting.interfaces.datasets;
 import android.graphics.DashPathEffect;
 
 import com.github.mikephil.charting.data.Entry;
-
+import androidx.annotation.Nullable;
 /**
  * Created by Philipp Jahoda on 21/10/15.
  */
+
 public interface ILineScatterCandleRadarDataSet<T extends Entry> extends IBarLineScatterCandleBubbleDataSet<T> {
 
     /**
@@ -31,5 +32,6 @@ public interface ILineScatterCandleRadarDataSet<T extends Entry> extends IBarLin
      * Returns the DashPathEffect that is used for highlighting.
      * @return
      */
+    @Nullable
     DashPathEffect getDashPathEffectHighlight();
 }

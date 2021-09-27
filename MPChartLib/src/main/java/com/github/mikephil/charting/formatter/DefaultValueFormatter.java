@@ -5,13 +5,14 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.text.DecimalFormat;
-
+import com.github.mikephil.charting.Initializer;
 /**
  * Default formatter used for formatting values inside the chart. Uses a DecimalFormat with
  * pre-calculated number of digits (depending on max and min value).
  *
  * @author Philipp Jahoda
  */
+
 public class DefaultValueFormatter implements IValueFormatter
 {
 
@@ -37,6 +38,7 @@ public class DefaultValueFormatter implements IValueFormatter
      *
      * @param digits
      */
+    @Initializer
     public void setup(int digits) {
 
         this.mDecimalDigits = digits;
