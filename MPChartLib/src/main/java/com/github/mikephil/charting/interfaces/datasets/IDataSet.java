@@ -12,10 +12,11 @@ import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.utils.MPPointF;
 
 import java.util.List;
-
+import androidx.annotation.Nullable;
 /**
  * Created by Philipp Jahoda on 21/10/15.
  */
+
 public interface IDataSet<T extends Entry> {
 
     /** ###### ###### DATA RELATED METHODS ###### ###### */
@@ -86,6 +87,7 @@ public interface IDataSet<T extends Entry> {
      *
      *
      */
+    @Nullable
     T getEntryForXValue(float xValue, float closestToY, DataSet.Rounding rounding);
 
     /**
@@ -145,7 +147,7 @@ public interface IDataSet<T extends Entry> {
      * @param e
      * @return
      */
-    int getEntryIndex(T e);
+    int getEntryIndex(@Nullable T e);
 
 
     /**
@@ -418,6 +420,7 @@ public interface IDataSet<T extends Entry> {
      * <p/>
      * Return `null` to use the default legend form line dash effect.
      */
+    @Nullable
     DashPathEffect getFormLineDashEffect();
 
     /**

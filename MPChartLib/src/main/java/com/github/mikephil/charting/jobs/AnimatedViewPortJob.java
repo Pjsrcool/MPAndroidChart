@@ -8,10 +8,11 @@ import android.view.View;
 
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.ViewPortHandler;
-
+import androidx.annotation.Nullable;
 /**
  * Created by Philipp Jahoda on 19/02/16.
  */
+
 @SuppressLint("NewApi")
 public abstract class AnimatedViewPortJob extends ViewPortJob implements ValueAnimator.AnimatorUpdateListener, Animator.AnimatorListener {
 
@@ -22,7 +23,7 @@ public abstract class AnimatedViewPortJob extends ViewPortJob implements ValueAn
     protected float xOrigin;
     protected float yOrigin;
 
-    public AnimatedViewPortJob(ViewPortHandler viewPortHandler, float xValue, float yValue, Transformer trans, View v, float xOrigin, float yOrigin, long duration) {
+    public AnimatedViewPortJob(@Nullable ViewPortHandler viewPortHandler, float xValue, float yValue, @Nullable Transformer trans, @Nullable View v, float xOrigin, float yOrigin, long duration) {
         super(viewPortHandler, xValue, yValue, trans, v);
         this.xOrigin = xOrigin;
         this.yOrigin = yOrigin;

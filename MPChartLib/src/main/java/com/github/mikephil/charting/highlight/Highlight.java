@@ -2,12 +2,13 @@
 package com.github.mikephil.charting.highlight;
 
 import com.github.mikephil.charting.components.YAxis;
-
+import androidx.annotation.Nullable;
 /**
  * Contains information needed to determine the highlighted value.
  *
  * @author Philipp Jahoda
  */
+
 public class Highlight {
 
     /**
