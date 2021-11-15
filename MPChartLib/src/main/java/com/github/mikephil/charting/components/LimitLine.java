@@ -8,6 +8,8 @@ import android.graphics.Typeface;
 
 import com.github.mikephil.charting.utils.Utils;
 
+import javax.annotation.Nullable;
+
 /**
  * The limit line is an additional feature for all Line-, Bar- and
  * ScatterCharts. It allows the displaying of an additional line in the chart
@@ -33,6 +35,7 @@ public class LimitLine extends ComponentBase {
     private String mLabel = "";
 
     /** the path effect of this LimitLine that makes dashed lines possible */
+    @Nullable
     private DashPathEffect mDashPathEffect = null;
 
     /** indicates the position of the LimitLine label */
@@ -143,6 +146,7 @@ public class LimitLine extends ComponentBase {
      * 
      * @return
      */
+    @Nullable
     public boolean isDashedLineEnabled() {
         return mDashPathEffect == null ? false : true;
     }
@@ -152,6 +156,7 @@ public class LimitLine extends ComponentBase {
      * 
      * @return
      */
+    @Nullable
     public DashPathEffect getDashPathEffect() {
         return mDashPathEffect;
     }

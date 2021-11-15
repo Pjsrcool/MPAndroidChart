@@ -9,6 +9,7 @@ import com.github.mikephil.charting.formatter.DefaultAxisValueFormatter;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.utils.Utils;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +23,7 @@ public abstract class AxisBase extends ComponentBase {
     /**
      * custom formatter that is used instead of the auto-formatter if set
      */
+    @Nullable
     protected IAxisValueFormatter mAxisValueFormatter;
 
     private int mGridColor = Color.GRAY;
@@ -95,11 +97,13 @@ public abstract class AxisBase extends ComponentBase {
     /**
      * the path effect of the axis line that makes dashed lines possible
      */
+    @Nullable
     private DashPathEffect mAxisLineDashPathEffect = null;
 
     /**
      * the path effect of the grid lines that makes dashed lines possible
      */
+    @Nullable
     private DashPathEffect mGridDashPathEffect = null;
 
     /**
@@ -601,6 +605,7 @@ public abstract class AxisBase extends ComponentBase {
      *
      * @return
      */
+    @Nullable
     public DashPathEffect getGridDashPathEffect() {
         return mGridDashPathEffect;
     }
@@ -653,6 +658,7 @@ public abstract class AxisBase extends ComponentBase {
      *
      * @return
      */
+    @Nullable
     public DashPathEffect getAxisLineDashPathEffect() {
         return mAxisLineDashPathEffect;
     }

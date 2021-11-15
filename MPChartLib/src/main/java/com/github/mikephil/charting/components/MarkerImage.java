@@ -16,6 +16,7 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.utils.FSize;
 import com.github.mikephil.charting.utils.MPPointF;
 
+import javax.annotation.Nullable;
 import java.lang.ref.WeakReference;
 
 /**
@@ -27,10 +28,12 @@ import java.lang.ref.WeakReference;
 public class MarkerImage implements IMarker {
 
     private Context mContext;
+    @Nullable
     private Drawable mDrawable;
 
     private MPPointF mOffset = new MPPointF();
     private MPPointF mOffset2 = new MPPointF();
+    @Nullable
     private WeakReference<Chart> mWeakChart;
 
     private FSize mSize = new FSize();
@@ -89,6 +92,7 @@ public class MarkerImage implements IMarker {
         mWeakChart = new WeakReference<>(chart);
     }
 
+    @Nullable
     public Chart getChartView() {
         return mWeakChart == null ? null : mWeakChart.get();
     }

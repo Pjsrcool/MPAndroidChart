@@ -50,6 +50,7 @@ import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
+import javax.annotation.Nullable;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -105,17 +106,20 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * paint object used for drawing the description text in the bottom right
      * corner of the chart
      */
+    @Nullable
     protected Paint mDescPaint;
 
     /**
      * paint object for drawing the information text when there are no values in
      * the chart
      */
+    @Nullable
     protected Paint mInfoPaint;
 
     /**
      * the object representing the labels on the x-axis
      */
+    @Nullable
     protected XAxis mXAxis;
 
     /**
@@ -126,18 +130,22 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * the object responsible for representing the description text
      */
+    @Nullable
     protected Description mDescription;
 
     /**
      * the legend object containing all data associated with the legend
      */
+    @Nullable
     protected Legend mLegend;
 
     /**
      * listener that is called when a value on the chart is selected
      */
+    @Nullable
     protected OnChartValueSelectedListener mSelectionListener;
 
+    @Nullable
     protected ChartTouchListener mChartTouchListener;
 
     /**
@@ -148,15 +156,19 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * Gesture listener for custom callbacks when making gestures on the chart.
      */
+    @Nullable
     private OnChartGestureListener mGestureListener;
 
+    @Nullable
     protected LegendRenderer mLegendRenderer;
 
     /**
      * object responsible for rendering the data
      */
+    @Nullable
     protected DataRenderer mRenderer;
 
+    @Nullable
     protected IHighlighter mHighlighter;
 
     /**
@@ -167,6 +179,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * object responsible for animations
      */
+    @Nullable
     protected ChartAnimator mAnimator;
 
     /**
@@ -467,6 +480,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * array of Highlight objects that reference the highlighted slices in the
      * chart
      */
+    @Nullable
     protected Highlight[] mIndicesToHighlight;
 
     /**
@@ -773,6 +787,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * the view that represents the marker
      */
+    @Nullable
     protected IMarker mMarker;
 
     /**
