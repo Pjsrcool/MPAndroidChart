@@ -7,6 +7,7 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.datasets.IBarLineScatterCandleBubbleDataSet;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -184,7 +185,7 @@ public class CombinedData extends BarLineScatterCandleBubbleData<IBarLineScatter
      * @return the entry that is highlighted
      */
     @Override
-    public Entry getEntryForHighlight(Highlight highlight) {
+    public @Nullable Entry getEntryForHighlight(Highlight highlight) {
 
         if (highlight.getDataIndex() >= getAllData().size())
             return null;

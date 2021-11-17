@@ -23,6 +23,7 @@ import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
+import javax.annotation.Nullable;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.List;
@@ -40,12 +41,14 @@ public class LineChartRenderer extends LineRadarRenderer {
      * Bitmap object used for drawing the paths (otherwise they are too long if
      * rendered directly on the canvas)
      */
+    @Nullable
     protected WeakReference<Bitmap> mDrawBitmap;
 
     /**
      * on this canvas, the paths are rendered, it is initialized with the
      * pathBitmap
      */
+    @Nullable
     protected Canvas mBitmapCanvas;
 
     /**
@@ -261,7 +264,7 @@ public class LineChartRenderer extends LineRadarRenderer {
         mRenderPaint.setPathEffect(null);
     }
 
-    protected void drawCubicFill(Canvas c, ILineDataSet dataSet, Path spline, Transformer trans, XBounds bounds) {
+    protected void drawCubicFill(@Nullable Canvas c, ILineDataSet dataSet, Path spline, Transformer trans, XBounds bounds) {
 
         float fillMin = dataSet.getFillFormatter()
                 .getFillLinePosition(dataSet, mChart);

@@ -18,6 +18,7 @@ import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 public class CandleStickChartRenderer extends LineScatterCandleRadarRenderer {
@@ -30,7 +31,7 @@ public class CandleStickChartRenderer extends LineScatterCandleRadarRenderer {
     private float[] mOpenBuffers = new float[4];
     private float[] mCloseBuffers = new float[4];
 
-    public CandleStickChartRenderer(CandleDataProvider chart, ChartAnimator animator,
+    public CandleStickChartRenderer(CandleDataProvider chart, @Nullable ChartAnimator animator,
                                     ViewPortHandler viewPortHandler) {
         super(animator, viewPortHandler);
         mChart = chart;

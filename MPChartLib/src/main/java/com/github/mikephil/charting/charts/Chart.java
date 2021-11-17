@@ -106,20 +106,17 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * paint object used for drawing the description text in the bottom right
      * corner of the chart
      */
-    @Nullable
     protected Paint mDescPaint;
 
     /**
      * paint object for drawing the information text when there are no values in
      * the chart
      */
-    @Nullable
     protected Paint mInfoPaint;
 
     /**
      * the object representing the labels on the x-axis
      */
-    @Nullable
     protected XAxis mXAxis;
 
     /**

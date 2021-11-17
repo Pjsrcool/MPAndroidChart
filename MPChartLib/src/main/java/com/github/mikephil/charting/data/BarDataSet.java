@@ -6,6 +6,7 @@ import android.graphics.Color;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.utils.Fill;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +42,7 @@ public class BarDataSet extends BarLineScatterCandleBubbleDataSet<BarEntry> impl
      */
     private String[] mStackLabels = new String[]{};
 
+    @Nullable
     protected List<Fill> mFills = null;
 
     public BarDataSet(List<BarEntry> yVals, String label) {

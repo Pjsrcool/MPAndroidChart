@@ -20,6 +20,8 @@ import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
+import javax.annotation.Nullable;
+
 /**
  * TouchListener for Bar-, Line-, Scatter- and CandleStickChart with handles all
  * touch interaction. Longpress == Zoom out. Double-Tap == Zoom in.
@@ -58,6 +60,7 @@ public class BarLineChartTouchListener extends ChartTouchListener<BarLineChartBa
     /**
      * used for tracking velocity of dragging
      */
+    @Nullable
     private VelocityTracker mVelocityTracker;
 
     private long mDecelerationLastTime = 0;
