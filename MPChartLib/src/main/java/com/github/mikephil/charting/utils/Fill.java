@@ -33,6 +33,7 @@ public class Fill
     @Nullable
     private Integer mColor = null;
 
+    @Nullable
     private Integer mFinalColor = null;
 
     /**

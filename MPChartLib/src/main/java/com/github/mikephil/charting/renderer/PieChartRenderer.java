@@ -68,6 +68,7 @@ public class PieChartRenderer extends DataRenderer {
     @Nullable
     protected WeakReference<Bitmap> mDrawBitmap;
 
+    @Nullable
     protected Canvas mBitmapCanvas;
 
     public PieChartRenderer(PieChart chart, ChartAnimator animator,

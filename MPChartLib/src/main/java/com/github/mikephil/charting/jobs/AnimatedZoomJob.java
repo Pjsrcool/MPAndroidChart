@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.graphics.Matrix;
 import android.view.View;
 
+import androidx.annotation.Nullable;
 import com.github.mikephil.charting.charts.BarLineChartBase;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.utils.ObjectPool;
@@ -51,7 +52,7 @@ public class AnimatedZoomJob extends AnimatedViewPortJob implements Animator.Ani
     protected float xAxisRange;
 
     @SuppressLint("NewApi")
-    public AnimatedZoomJob(ViewPortHandler viewPortHandler, View v, Transformer trans, YAxis axis, float xAxisRange, float scaleX, float scaleY, float xOrigin, float yOrigin, float zoomCenterX, float zoomCenterY, float zoomOriginX, float zoomOriginY, long duration) {
+    public AnimatedZoomJob(@Nullable ViewPortHandler viewPortHandler, @Nullable View v, @Nullable Transformer trans, @Nullable YAxis axis, float xAxisRange, float scaleX, float scaleY, float xOrigin, float yOrigin, float zoomCenterX, float zoomCenterY, float zoomOriginX, float zoomOriginY, long duration) {
         super(viewPortHandler, scaleX, scaleY, trans, v, xOrigin, yOrigin, duration);
 
         this.zoomCenterX = zoomCenterX;

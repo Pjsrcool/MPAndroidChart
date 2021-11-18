@@ -156,7 +156,6 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     @Nullable
     private OnChartGestureListener mGestureListener;
 
-    @Nullable
     protected LegendRenderer mLegendRenderer;
 
     /**
@@ -176,7 +175,6 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * object responsible for animations
      */
-    @Nullable
     protected ChartAnimator mAnimator;
 
     /**
@@ -694,7 +692,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * @param high         - the highlight object
      * @param callListener - call the listener
      */
-    public void highlightValue(Highlight high, boolean callListener) {
+    public void highlightValue(@Nullable Highlight high, boolean callListener) {
 
         Entry e = null;
 
@@ -743,6 +741,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * @param y
      * @return
      */
+    @Nullable
     public Highlight getHighlightByTouchPoint(float x, float y) {
 
         if (mData == null) {
@@ -1413,6 +1412,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * @param which e.g. Chart.PAINT_LEGEND_LABEL
      * @return
      */
+    @Nullable
     public Paint getPaint(int which) {
         switch (which) {
             case PAINT_INFO:

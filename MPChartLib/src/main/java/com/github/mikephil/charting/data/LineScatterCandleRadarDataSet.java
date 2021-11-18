@@ -5,6 +5,7 @@ import android.graphics.DashPathEffect;
 import com.github.mikephil.charting.interfaces.datasets.ILineScatterCandleRadarDataSet;
 import com.github.mikephil.charting.utils.Utils;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 /**
@@ -19,6 +20,7 @@ public abstract class LineScatterCandleRadarDataSet<T extends Entry> extends Bar
     protected float mHighlightLineWidth = 0.5f;
 
     /** the path effect for dashed highlight-lines */
+    @Nullable
     protected DashPathEffect mHighlightDashPathEffect = null;
 
 

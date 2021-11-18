@@ -4,6 +4,7 @@ package com.github.mikephil.charting.jobs;
 import android.graphics.Matrix;
 import android.view.View;
 
+import androidx.annotation.Nullable;
 import com.github.mikephil.charting.charts.BarLineChartBase;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.utils.ObjectPool;
@@ -45,8 +46,8 @@ public class ZoomJob extends ViewPortJob {
 
     protected YAxis.AxisDependency axisDependency;
 
-    public ZoomJob(ViewPortHandler viewPortHandler, float scaleX, float scaleY, float xValue, float yValue, Transformer trans,
-                   YAxis.AxisDependency axis, View v) {
+    public ZoomJob(@Nullable ViewPortHandler viewPortHandler, float scaleX, float scaleY, float xValue, float yValue, @Nullable Transformer trans,
+                   @Nullable YAxis.AxisDependency axis, @Nullable View v) {
         super(viewPortHandler, xValue, yValue, trans, v);
 
         this.scaleX = scaleX;

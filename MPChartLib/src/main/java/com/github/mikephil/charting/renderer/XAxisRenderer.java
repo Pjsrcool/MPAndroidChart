@@ -8,6 +8,7 @@ import android.graphics.Paint.Align;
 import android.graphics.Path;
 import android.graphics.RectF;
 
+import androidx.annotation.Nullable;
 import com.github.mikephil.charting.components.LimitLine;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.XAxis.XAxisPosition;
@@ -24,7 +25,7 @@ public class XAxisRenderer extends AxisRenderer {
 
     protected XAxis mXAxis;
 
-    public XAxisRenderer(ViewPortHandler viewPortHandler, XAxis xAxis, Transformer trans) {
+    public XAxisRenderer(ViewPortHandler viewPortHandler, XAxis xAxis, @Nullable Transformer trans) {
         super(viewPortHandler, trans, xAxis);
 
         this.mXAxis = xAxis;

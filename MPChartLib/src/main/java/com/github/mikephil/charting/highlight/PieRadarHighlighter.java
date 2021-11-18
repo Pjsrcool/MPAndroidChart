@@ -3,6 +3,7 @@ package com.github.mikephil.charting.highlight;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.charts.PieRadarChartBase;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +25,7 @@ public abstract class PieRadarHighlighter<T extends PieRadarChartBase> implement
     }
 
     @Override
+    @Nullable
     public Highlight getHighlight(float x, float y) {
 
         float touchDistanceToCenter = mChart.distanceToCenter(x, y);

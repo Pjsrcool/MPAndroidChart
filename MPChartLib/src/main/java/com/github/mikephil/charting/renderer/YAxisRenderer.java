@@ -7,6 +7,7 @@ import android.graphics.Paint.Align;
 import android.graphics.Path;
 import android.graphics.RectF;
 
+import androidx.annotation.Nullable;
 import com.github.mikephil.charting.components.LimitLine;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.components.YAxis.AxisDependency;
@@ -24,7 +25,7 @@ public class YAxisRenderer extends AxisRenderer {
 
     protected Paint mZeroLinePaint;
 
-    public YAxisRenderer(ViewPortHandler viewPortHandler, YAxis yAxis, Transformer trans) {
+    public YAxisRenderer(ViewPortHandler viewPortHandler, YAxis yAxis, @Nullable Transformer trans) {
         super(viewPortHandler, trans, yAxis);
 
         this.mYAxis = yAxis;

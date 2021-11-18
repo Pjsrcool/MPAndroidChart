@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import com.github.mikephil.charting.interfaces.datasets.ILineRadarDataSet;
 import com.github.mikephil.charting.utils.Utils;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 /**
@@ -26,6 +27,7 @@ public abstract class LineRadarDataSet<T extends Entry> extends LineScatterCandl
     /**
      * the drawable to be used for filling the line surface
      */
+    @Nullable
     protected Drawable mFillDrawable;
 
     /**
