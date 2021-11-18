@@ -224,6 +224,7 @@ public class BarChart extends BarLineChartBase<BarData> implements BarDataProvid
     }
 
     @Override
+    @Nullable
     public BarData getBarData() {
         return mData;
     }

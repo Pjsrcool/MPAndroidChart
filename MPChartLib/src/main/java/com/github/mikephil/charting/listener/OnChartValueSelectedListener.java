@@ -3,6 +3,8 @@ package com.github.mikephil.charting.listener;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.highlight.Highlight;
 
+import javax.annotation.Nullable;
+
 /**
  * Listener for callbacks when selecting values inside the chart by
  * touch-gesture.
@@ -18,7 +20,7 @@ public interface OnChartValueSelectedListener {
      * @param h The corresponding highlight object that contains information
      *          about the highlighted position such as dataSetIndex, ...
      */
-    void onValueSelected(Entry e, Highlight h);
+    void onValueSelected(@Nullable Entry e, Highlight h);
 
     /**
      * Called when nothing has been selected or an "un-select" has been made.

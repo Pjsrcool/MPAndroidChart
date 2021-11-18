@@ -8,6 +8,8 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.interfaces.dataprovider.LineDataProvider;
 import com.github.mikephil.charting.renderer.LineChartRenderer;
 
+import javax.annotation.Nullable;
+
 /**
  * Chart that draws lines, surfaces, circles, ...
  *
@@ -35,6 +37,7 @@ public class LineChart extends BarLineChartBase<LineData> implements LineDataPro
     }
 
     @Override
+    @Nullable
     public LineData getLineData() {
         return mData;
     }

@@ -8,6 +8,8 @@ import com.github.mikephil.charting.data.CandleData;
 import com.github.mikephil.charting.interfaces.dataprovider.CandleDataProvider;
 import com.github.mikephil.charting.renderer.CandleStickChartRenderer;
 
+import javax.annotation.Nullable;
+
 /**
  * Financial chart type that draws candle-sticks (OHCL chart).
  *
@@ -38,6 +40,7 @@ public class CandleStickChart extends BarLineChartBase<CandleData> implements Ca
     }
 
     @Override
+    @Nullable
     public CandleData getCandleData() {
         return mData;
     }

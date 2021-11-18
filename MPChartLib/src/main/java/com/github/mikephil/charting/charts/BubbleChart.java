@@ -8,6 +8,8 @@ import com.github.mikephil.charting.data.BubbleData;
 import com.github.mikephil.charting.interfaces.dataprovider.BubbleDataProvider;
 import com.github.mikephil.charting.renderer.BubbleChartRenderer;
 
+import javax.annotation.Nullable;
+
 /**
  * The BubbleChart. Draws bubbles. Bubble chart implementation: Copyright 2015
  * Pierre-Marc Airoldi Licensed under Apache License 2.0. In the BubbleChart, it
@@ -31,12 +33,14 @@ public class BubbleChart extends BarLineChartBase<BubbleData> implements BubbleD
     }
 
     @Override
+    @Nullable
     protected void init() {
         super.init();
 
         mRenderer = new BubbleChartRenderer(this, mAnimator, mViewPortHandler);
     }
 
+    @Nullable
     public BubbleData getBubbleData() {
         return mData;
     }

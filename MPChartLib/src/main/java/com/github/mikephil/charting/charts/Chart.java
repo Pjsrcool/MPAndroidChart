@@ -77,6 +77,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * object that holds all data that was originally set for the chart, before
      * it was modified or any filtering algorithms had been applied
      */
+    @Nullable
     protected T mData = null;
 
     /**
@@ -142,7 +143,6 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     @Nullable
     protected OnChartValueSelectedListener mSelectionListener;
 
-    @Nullable
     protected ChartTouchListener mChartTouchListener;
 
     /**
@@ -504,6 +504,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @return
      */
+    @Nullable
     public Highlight[] getHighlighted() {
         return mIndicesToHighlight;
     }
@@ -545,7 +546,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @param highs
      */
-    protected void setLastHighlighted(Highlight[] highs) {
+    protected void setLastHighlighted(@Nullable Highlight[] highs) {
 
         if (highs == null || highs.length <= 0 || highs[0] == null) {
             mChartTouchListener.setLastHighlighted(null);

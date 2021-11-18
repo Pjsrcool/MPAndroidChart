@@ -87,6 +87,7 @@ public class CombinedChart extends BarLineChartBase<CombinedData> implements Com
     }
 
     @Override
+    @Nullable
     public CombinedData getCombinedData() {
         return mData;
     }
