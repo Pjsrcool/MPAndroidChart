@@ -33,7 +33,6 @@ public class BubbleChart extends BarLineChartBase<BubbleData> implements BubbleD
     }
 
     @Override
-    @Nullable
     protected void init() {
         super.init();
 
