@@ -75,6 +75,7 @@ public class BarDataSet extends BarLineScatterCandleBubbleDataSet<BarEntry> impl
     }
 
     @Override
+    @Nullable
     public List<Fill> getFills() {
         return mFills;
     }
@@ -89,6 +90,7 @@ public class BarDataSet extends BarLineScatterCandleBubbleDataSet<BarEntry> impl
      * Use getFills() instead.
      */
     @Deprecated
+    @Nullable
     public List<Fill> getGradients() {
         return mFills;
     }

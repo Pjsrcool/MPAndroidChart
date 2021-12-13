@@ -107,6 +107,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * paint object used for drawing the description text in the bottom right
      * corner of the chart
      */
+    @Nullable
     protected Paint mDescPaint;
 
     /**
@@ -118,6 +119,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * the object representing the labels on the x-axis
      */
+    @Nullable
     protected XAxis mXAxis;
 
     /**
@@ -128,7 +130,6 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * the object responsible for representing the description text
      */
-    @Nullable
     protected Description mDescription;
 
     /**
@@ -143,6 +144,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     @Nullable
     protected OnChartValueSelectedListener mSelectionListener;
 
+    @Nullable
     protected ChartTouchListener mChartTouchListener;
 
     /**
@@ -153,9 +155,9 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * Gesture listener for custom callbacks when making gestures on the chart.
      */
-    @Nullable
     private OnChartGestureListener mGestureListener;
 
+    @Nullable
     protected LegendRenderer mLegendRenderer;
 
     /**
@@ -767,6 +769,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @return
      */
+    @Nullable
     public ChartTouchListener getOnTouchListener() {
         return mChartTouchListener;
     }
@@ -1024,6 +1027,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @return
      */
+    @Nullable
     public XAxis getXAxis() {
         return mXAxis;
     }
@@ -1273,6 +1277,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @return
      */
+    @Nullable
     public IMarker getMarker() {
         return mMarker;
     }
@@ -1313,6 +1318,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @return
      */
+    @Nullable
     public Legend getLegend() {
         return mLegend;
     }
@@ -1461,6 +1467,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @return
      */
+    @Nullable
     public T getData() {
         return mData;
     }
@@ -1480,6 +1487,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @return
      */
+    @Nullable
     public DataRenderer getRenderer() {
         return mRenderer;
     }

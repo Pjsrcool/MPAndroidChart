@@ -12,6 +12,7 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.Utils;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +26,7 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
     /**
      * List representing all colors that are used for the circles
      */
+    @Nullable
     private List<Integer> mCircleColors = null;
 
     /**
@@ -50,6 +52,7 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
     /**
      * the path effect of this DataSet that makes dashed lines possible
      */
+    @Nullable
     private DashPathEffect mDashPathEffect = null;
 
     /**
@@ -237,6 +240,7 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
     }
 
     @Override
+    @Nullable
     public DashPathEffect getDashPathEffect() {
         return mDashPathEffect;
     }
@@ -275,6 +279,7 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
      *
      * @return
      */
+    @Nullable
     public List<Integer> getCircleColors() {
         return mCircleColors;
     }

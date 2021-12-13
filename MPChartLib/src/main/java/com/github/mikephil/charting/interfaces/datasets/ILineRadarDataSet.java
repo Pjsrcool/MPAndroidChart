@@ -4,6 +4,8 @@ import android.graphics.drawable.Drawable;
 
 import com.github.mikephil.charting.data.Entry;
 
+import javax.annotation.Nullable;
+
 /**
  * Created by Philipp Jahoda on 21/10/15.
  */
@@ -21,6 +23,7 @@ public interface ILineRadarDataSet<T extends Entry> extends ILineScatterCandleRa
      *
      * @return
      */
+    @Nullable
     Drawable getFillDrawable();
 
     /**

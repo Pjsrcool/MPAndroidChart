@@ -108,6 +108,7 @@ public abstract class LineScatterCandleRadarDataSet<T extends Entry> extends Bar
     }
 
     @Override
+    @Nullable
     public DashPathEffect getDashPathEffectHighlight() {
         return mHighlightDashPathEffect;
     }

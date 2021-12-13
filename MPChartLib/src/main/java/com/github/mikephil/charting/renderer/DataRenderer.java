@@ -30,6 +30,7 @@ public abstract class DataRenderer extends Renderer {
     /**
      * the animator object used to perform animations on the chart data
      */
+    @Nullable
     protected ChartAnimator mAnimator;
 
     /**
@@ -50,7 +51,7 @@ public abstract class DataRenderer extends Renderer {
      */
     protected Paint mValuePaint;
 
-    public DataRenderer(ChartAnimator animator, ViewPortHandler viewPortHandler) {
+    public DataRenderer(@Nullable ChartAnimator animator, ViewPortHandler viewPortHandler) {
         super(viewPortHandler);
         this.mAnimator = animator;
 
@@ -110,7 +111,7 @@ public abstract class DataRenderer extends Renderer {
      *
      * @param set
      */
-    protected void applyValueTextStyle(IDataSet set) {
+    protected void applyValueTextStyle(@Nullable IDataSet set) {
 
         mValuePaint.setTypeface(set.getValueTypeface());
         mValuePaint.setTextSize(set.getValueTextSize());

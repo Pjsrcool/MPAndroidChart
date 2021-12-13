@@ -12,6 +12,7 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.utils.FSize;
 import com.github.mikephil.charting.utils.MPPointF;
 
+import javax.annotation.Nullable;
 import java.lang.ref.WeakReference;
 
 /**
@@ -75,6 +76,7 @@ public class MarkerView extends RelativeLayout implements IMarker {
         mWeakChart = new WeakReference<>(chart);
     }
 
+    @Nullable
     public Chart getChartView() {
         return mWeakChart == null ? null : mWeakChart.get();
     }

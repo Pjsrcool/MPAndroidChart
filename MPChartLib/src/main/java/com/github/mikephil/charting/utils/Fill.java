@@ -111,6 +111,7 @@ public class Fill
         calculateFinalColor();
     }
 
+    @Nullable
     public int[] getGradientColors()
     {
         return mGradientColors;
@@ -121,6 +122,7 @@ public class Fill
         this.mGradientColors = colors;
     }
 
+    @Nullable
     public float[] getGradientPositions()
     {
         return mGradientPositions;

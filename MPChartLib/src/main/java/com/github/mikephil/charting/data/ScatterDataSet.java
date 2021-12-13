@@ -13,6 +13,7 @@ import com.github.mikephil.charting.renderer.scatter.TriangleShapeRenderer;
 import com.github.mikephil.charting.renderer.scatter.XShapeRenderer;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -133,6 +134,7 @@ public class ScatterDataSet extends LineScatterCandleRadarDataSet<Entry> impleme
         return mScatterShapeHoleColor;
     }
 
+    @Nullable
     public static IShapeRenderer getRendererForShape(ScatterChart.ScatterShape shape) {
 
         switch (shape) {

@@ -8,6 +8,8 @@ import com.github.mikephil.charting.data.ScatterData;
 import com.github.mikephil.charting.interfaces.dataprovider.ScatterDataProvider;
 import com.github.mikephil.charting.renderer.ScatterChartRenderer;
 
+import javax.annotation.Nullable;
+
 /**
  * The ScatterChart. Draws dots, triangles, squares and custom shapes into the
  * Chart-View. CIRCLE and SCQUARE offer the best performance, TRIANGLE has the
@@ -41,6 +43,7 @@ public class ScatterChart extends BarLineChartBase<ScatterData> implements Scatt
     }
 
     @Override
+    @Nullable
     public ScatterData getScatterData() {
         return mData;
     }

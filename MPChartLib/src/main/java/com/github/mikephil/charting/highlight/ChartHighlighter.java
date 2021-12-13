@@ -33,6 +33,7 @@ public class ChartHighlighter<T extends BarLineScatterCandleBubbleDataProvider> 
     }
 
     @Override
+    @Nullable
     public Highlight getHighlight(float x, float y) {
 
         MPPointD pos = getValsForTouch(x, y);
@@ -203,6 +204,7 @@ public class ChartHighlighter<T extends BarLineScatterCandleBubbleDataProvider> 
      * @param minSelectionDistance
      * @return
      */
+    @Nullable
     public Highlight getClosestHighlightByPixel(List<Highlight> closestValues, float x, float y,
                                                 YAxis.AxisDependency axis, float minSelectionDistance) {
 
