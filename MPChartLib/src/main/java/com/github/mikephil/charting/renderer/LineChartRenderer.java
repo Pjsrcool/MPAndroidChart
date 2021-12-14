@@ -59,7 +59,7 @@ public class LineChartRenderer extends LineRadarRenderer {
     protected Path cubicPath = new Path();
     protected Path cubicFillPath = new Path();
 
-    public LineChartRenderer(LineDataProvider chart, ChartAnimator animator,
+    public LineChartRenderer(LineDataProvider chart, @Nullable ChartAnimator animator,
                              ViewPortHandler viewPortHandler) {
         super(animator, viewPortHandler);
         mChart = chart;

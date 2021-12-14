@@ -18,13 +18,14 @@ import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 public class ScatterChartRenderer extends LineScatterCandleRadarRenderer {
 
     protected ScatterDataProvider mChart;
 
-    public ScatterChartRenderer(ScatterDataProvider chart, ChartAnimator animator, ViewPortHandler viewPortHandler) {
+    public ScatterChartRenderer(ScatterDataProvider chart, @Nullable ChartAnimator animator, ViewPortHandler viewPortHandler) {
         super(animator, viewPortHandler);
         mChart = chart;
     }

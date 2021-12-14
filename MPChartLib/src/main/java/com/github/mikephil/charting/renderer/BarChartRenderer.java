@@ -21,6 +21,7 @@ import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
@@ -37,7 +38,7 @@ public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
     protected Paint mShadowPaint;
     protected Paint mBarBorderPaint;
 
-    public BarChartRenderer(BarDataProvider chart, ChartAnimator animator,
+    public BarChartRenderer(BarDataProvider chart, @Nullable ChartAnimator animator,
                             ViewPortHandler viewPortHandler) {
         super(animator, viewPortHandler);
         this.mChart = chart;

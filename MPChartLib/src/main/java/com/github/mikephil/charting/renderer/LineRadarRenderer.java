@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
  */
 public abstract class LineRadarRenderer extends LineScatterCandleRadarRenderer {
 
-    public LineRadarRenderer(ChartAnimator animator, ViewPortHandler viewPortHandler) {
+    public LineRadarRenderer(@Nullable ChartAnimator animator, ViewPortHandler viewPortHandler) {
         super(animator, viewPortHandler);
     }
 
@@ -27,7 +27,7 @@ public abstract class LineRadarRenderer extends LineScatterCandleRadarRenderer {
      * @param filledPath
      * @param drawable
      */
-    protected void drawFilledPath(Canvas c, Path filledPath, Drawable drawable) {
+    protected void drawFilledPath(@Nullable Canvas c, Path filledPath, Drawable drawable) {
 
         if (clipPathSupported()) {
 
@@ -56,7 +56,7 @@ public abstract class LineRadarRenderer extends LineScatterCandleRadarRenderer {
      * @param fillColor
      * @param fillAlpha
      */
-    protected void drawFilledPath(Canvas c, Path filledPath, int fillColor, int fillAlpha) {
+    protected void drawFilledPath(@Nullable Canvas c, Path filledPath, int fillColor, int fillAlpha) {
 
         int color = (fillAlpha << 24) | (fillColor & 0xffffff);
 
