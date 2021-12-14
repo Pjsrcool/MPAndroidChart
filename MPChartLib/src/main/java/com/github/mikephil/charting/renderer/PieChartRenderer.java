@@ -757,8 +757,7 @@ public class PieChartRenderer extends DataRenderer {
             if (radiusPercent > 0.0) {
                 boundingRect.inset(
                         (boundingRect.width() - boundingRect.width() * radiusPercent) / 2.f,
-                        (boundingRectLayout;
-    private CharSequence mCenterTextLastValue;t.height() - boundingRect.height() * radiusPercent) / 2.f
+                        (boundingRect.height() - boundingRect.height() * radiusPercent) / 2.f
                 );
             }
 
