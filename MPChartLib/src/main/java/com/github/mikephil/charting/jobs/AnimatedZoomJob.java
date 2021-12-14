@@ -47,6 +47,7 @@ public class AnimatedZoomJob extends AnimatedViewPortJob implements Animator.Ani
     protected float zoomCenterX;
     protected float zoomCenterY;
 
+    @Nullable
     protected YAxis yAxis;
 
     protected float xAxisRange;

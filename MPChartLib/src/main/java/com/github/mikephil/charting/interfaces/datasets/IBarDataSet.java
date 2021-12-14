@@ -3,6 +3,7 @@ package com.github.mikephil.charting.interfaces.datasets;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.Fill;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 /**
@@ -10,6 +11,7 @@ import java.util.List;
  */
 public interface IBarDataSet extends IBarLineScatterCandleBubbleDataSet<BarEntry> {
 
+    @Nullable
     List<Fill> getFills();
 
     Fill getFill(int index);

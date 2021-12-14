@@ -168,5 +168,5 @@ public abstract class DataRenderer extends Renderer {
      * @param c
      * @param indices the highlighted values
      */
-    public abstract void drawHighlighted(Canvas c, Highlight[] indices);
+    public abstract void drawHighlighted(Canvas c, @Nullable Highlight[] indices);
 }

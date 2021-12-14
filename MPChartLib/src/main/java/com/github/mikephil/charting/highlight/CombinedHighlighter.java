@@ -8,6 +8,7 @@ import com.github.mikephil.charting.interfaces.dataprovider.BarDataProvider;
 import com.github.mikephil.charting.interfaces.dataprovider.CombinedDataProvider;
 import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 /**
@@ -19,6 +20,7 @@ public class CombinedHighlighter extends ChartHighlighter<CombinedDataProvider> 
     /**
      * bar highlighter for supporting stacked highlighting
      */
+    @Nullable
     protected BarHighlighter barHighlighter;
 
     public CombinedHighlighter(CombinedDataProvider chart, BarDataProvider barChart) {

@@ -1,6 +1,7 @@
 package com.github.mikephil.charting.data;
 
 import android.annotation.SuppressLint;
+import androidx.annotation.Nullable;
 
 /**
  * Created by philipp on 13/06/16.
@@ -12,7 +13,7 @@ public class RadarEntry extends Entry {
         super(0f, value);
     }
 
-    public RadarEntry(float value, Object data) {
+    public RadarEntry(float value, @Nullable Object data) {
         super(0f, value, data);
     }
 

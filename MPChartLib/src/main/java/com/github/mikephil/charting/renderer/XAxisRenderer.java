@@ -25,7 +25,7 @@ public class XAxisRenderer extends AxisRenderer {
 
     protected XAxis mXAxis;
 
-    public XAxisRenderer(ViewPortHandler viewPortHandler, XAxis xAxis, @Nullable Transformer trans) {
+    public XAxisRenderer(ViewPortHandler viewPortHandler, @Nullable XAxis xAxis, @Nullable Transformer trans) {
         super(viewPortHandler, trans, xAxis);
 
         this.mXAxis = xAxis;

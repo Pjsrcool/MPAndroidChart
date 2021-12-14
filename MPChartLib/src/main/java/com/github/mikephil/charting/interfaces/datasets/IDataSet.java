@@ -146,7 +146,7 @@ public interface IDataSet<T extends Entry> {
      * @param e
      * @return
      */
-    int getEntryIndex(T e);
+    int getEntryIndex(@Nullable T e);
 
 
     /**

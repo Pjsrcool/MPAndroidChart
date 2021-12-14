@@ -1483,7 +1483,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
      * @param axis
      * @return
      */
-    public YAxis getAxis(AxisDependency axis) {
+    public YAxis getAxis(@Nullable AxisDependency axis) {
         if (axis == AxisDependency.LEFT)
             return mAxisLeft;
         else

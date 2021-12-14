@@ -27,7 +27,7 @@ public abstract class BaseEntry {
         this.y = y;
     }
 
-    public BaseEntry(float y, Object data) {
+    public BaseEntry(float y, @Nullable Object data) {
         this(y);
         this.mData = data;
     }

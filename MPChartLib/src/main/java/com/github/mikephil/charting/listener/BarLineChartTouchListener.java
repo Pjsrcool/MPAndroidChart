@@ -55,6 +55,7 @@ public class BarLineChartTouchListener extends ChartTouchListener<BarLineChartBa
     private float mSavedYDist = 1f;
     private float mSavedDist = 1f;
 
+    @Nullable
     private IDataSet mClosestDataSetToTouch;
 
     /**

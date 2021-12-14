@@ -3,6 +3,8 @@ package com.github.mikephil.charting.highlight;
 
 import com.github.mikephil.charting.components.YAxis;
 
+import javax.annotation.Nullable;
+
 /**
  * Contains information needed to determine the highlighted value.
  *
@@ -222,7 +224,7 @@ public class Highlight {
      * @param h
      * @return
      */
-    public boolean equalTo(Highlight h) {
+    public boolean equalTo(@Nullable Highlight h) {
 
         if (h == null)
             return false;

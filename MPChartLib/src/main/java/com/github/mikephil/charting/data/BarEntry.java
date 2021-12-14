@@ -3,6 +3,7 @@ package com.github.mikephil.charting.data;
 import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
 
+import androidx.annotation.Nullable;
 import com.github.mikephil.charting.highlight.Range;
 
 /**
@@ -50,7 +51,7 @@ public class BarEntry extends Entry {
      * @param y
      * @param data - Spot for additional data this Entry represents.
      */
-    public BarEntry(float x, float y, Object data) {
+    public BarEntry(float x, float y, @Nullable Object data) {
         super(x, y, data);
     }
 

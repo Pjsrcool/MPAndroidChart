@@ -161,6 +161,7 @@ public class BarHighlighter extends ChartHighlighter<BarDataProvider> {
     }
 
     @Override
+    @Nullable
     protected BarLineScatterCandleBubbleData getData() {
         return mChart.getBarData();
     }

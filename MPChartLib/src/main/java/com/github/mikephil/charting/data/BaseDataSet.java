@@ -127,10 +127,12 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
      */
 
     @Override
+    @Nullable
     public List<Integer> getColors() {
         return mColors;
     }
 
+    @Nullable
     public List<Integer> getValueColors() {
         return mValueColors;
     }
@@ -371,6 +373,7 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     }
 
     @Override
+    @Nullable
     public DashPathEffect getFormLineDashEffect() {
         return mFormLineDashEffect;
     }

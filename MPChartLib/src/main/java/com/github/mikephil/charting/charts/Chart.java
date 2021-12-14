@@ -157,7 +157,6 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      */
     private OnChartGestureListener mGestureListener;
 
-    @Nullable
     protected LegendRenderer mLegendRenderer;
 
     /**
@@ -787,7 +786,6 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * the view that represents the marker
      */
-    @Nullable
     protected IMarker mMarker;
 
     /**
@@ -1277,7 +1275,6 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @return
      */
-    @Nullable
     public IMarker getMarker() {
         return mMarker;
     }
@@ -1503,6 +1500,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
             mRenderer = renderer;
     }
 
+    @Nullable
     public IHighlighter getHighlighter() {
         return mHighlighter;
     }

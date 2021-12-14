@@ -24,6 +24,7 @@ import android.view.ViewConfiguration;
 import com.github.mikephil.charting.formatter.DefaultValueFormatter;
 import com.github.mikephil.charting.formatter.IValueFormatter;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 /**

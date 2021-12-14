@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 
+import javax.annotation.Nullable;
+
 /**
  * @author Philipp Jahoda
  */
@@ -33,7 +35,7 @@ public class PieEntry extends Entry {
         this.label = label;
     }
 
-    public PieEntry(float value, String label, Object data) {
+    public PieEntry(float value, String label, @Nullable Object data) {
         super(0f, value, data);
         this.label = label;
     }
