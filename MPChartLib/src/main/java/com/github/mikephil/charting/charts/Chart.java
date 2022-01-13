@@ -165,7 +165,6 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     @Nullable
     protected DataRenderer mRenderer;
 
-    @Nullable
     protected IHighlighter mHighlighter;
 
     /**
@@ -1500,7 +1499,6 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
             mRenderer = renderer;
     }
 
-    @Nullable
     public IHighlighter getHighlighter() {
         return mHighlighter;
     }
