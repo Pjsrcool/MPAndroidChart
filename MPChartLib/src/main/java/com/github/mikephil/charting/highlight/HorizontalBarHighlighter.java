@@ -8,6 +8,7 @@ import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import com.github.mikephil.charting.utils.MPPointD;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class HorizontalBarHighlighter extends BarHighlighter {
 	}
 
 	@Override
+	@Nullable
 	public Highlight getHighlight(float x, float y) {
 
 		BarData barData = mChart.getBarData();

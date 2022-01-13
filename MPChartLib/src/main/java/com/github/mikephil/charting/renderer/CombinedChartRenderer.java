@@ -12,6 +12,7 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.dataprovider.BarLineScatterCandleBubbleDataProvider;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
+import javax.annotation.Nullable;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
@@ -145,6 +146,7 @@ public class CombinedChartRenderer extends DataRenderer {
      * @param index
      * @return
      */
+    @Nullable
     public DataRenderer getSubRenderer(int index) {
         if (index >= mRenderers.size() || index < 0)
             return null;

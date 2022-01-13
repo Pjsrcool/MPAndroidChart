@@ -17,6 +17,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore.Images;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -116,6 +117,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * the object representing the labels on the x-axis
      */
+    @Nullable
     protected XAxis mXAxis;
 
     /**

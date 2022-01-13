@@ -30,6 +30,7 @@ import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
+import javax.annotation.Nullable;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
@@ -64,8 +65,10 @@ public class PieChartRenderer extends DataRenderer {
     /**
      * Bitmap for drawing the center hole
      */
+    @Nullable
     protected WeakReference<Bitmap> mDrawBitmap;
 
+    @Nullable
     protected Canvas mBitmapCanvas;
 
     public PieChartRenderer(PieChart chart, ChartAnimator animator,

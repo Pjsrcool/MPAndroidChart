@@ -14,6 +14,8 @@ import com.github.mikephil.charting.interfaces.dataprovider.BarDataProvider;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.renderer.BarChartRenderer;
 
+import javax.annotation.Nullable;
+
 /**
  * Chart that draws bars.
  *
@@ -87,6 +89,7 @@ public class BarChart extends BarLineChartBase<BarData> implements BarDataProvid
      * @return
      */
     @Override
+    @Nullable
     public Highlight getHighlightByTouchPoint(float x, float y) {
 
         if (mData == null) {
