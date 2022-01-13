@@ -9,6 +9,7 @@ import com.github.mikephil.charting.formatter.DefaultAxisValueFormatter;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.utils.Utils;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,11 +96,13 @@ public abstract class AxisBase extends ComponentBase {
     /**
      * the path effect of the axis line that makes dashed lines possible
      */
+    @Nullable
     private DashPathEffect mAxisLineDashPathEffect = null;
 
     /**
      * the path effect of the grid lines that makes dashed lines possible
      */
+    @Nullable
     private DashPathEffect mGridDashPathEffect = null;
 
     /**
