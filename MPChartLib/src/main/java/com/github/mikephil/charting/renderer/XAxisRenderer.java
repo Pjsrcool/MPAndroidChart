@@ -18,13 +18,14 @@ import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 public class XAxisRenderer extends AxisRenderer {
 
     protected XAxis mXAxis;
 
-    public XAxisRenderer(ViewPortHandler viewPortHandler, XAxis xAxis, Transformer trans) {
+    public XAxisRenderer(ViewPortHandler viewPortHandler, @Nullable XAxis xAxis, @Nullable Transformer trans) {
         super(viewPortHandler, trans, xAxis);
 
         this.mXAxis = xAxis;

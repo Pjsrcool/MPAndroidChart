@@ -9,6 +9,8 @@ import com.github.mikephil.charting.animation.ChartAnimator;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
+import javax.annotation.Nullable;
+
 /**
  * Created by Philipp Jahoda on 25/01/16.
  */
@@ -25,7 +27,7 @@ public abstract class LineRadarRenderer extends LineScatterCandleRadarRenderer {
      * @param filledPath
      * @param drawable
      */
-    protected void drawFilledPath(Canvas c, Path filledPath, Drawable drawable) {
+    protected void drawFilledPath(@Nullable Canvas c, Path filledPath, Drawable drawable) {
 
         if (clipPathSupported()) {
 

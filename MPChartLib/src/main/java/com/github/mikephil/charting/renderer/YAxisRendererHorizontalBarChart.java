@@ -16,6 +16,7 @@ import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 public class YAxisRendererHorizontalBarChart extends YAxisRenderer {
